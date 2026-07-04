@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import profileImage from '../Image/NguyenHuuVinhPhat.jpg';
 
 type Experience = {
   year: string;
@@ -38,7 +39,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    year: '2024',
+    year: '2026',
     title: 'Nhà hàng Vĩnh Ký',
     team: 'Vai trò: Cửa hàng trưởng',
     points: [
@@ -172,11 +173,13 @@ export default function App() {
                   transition={{ duration: 0.6 }}
                   className="mx-auto flex w-full flex-col items-center text-center"
                 >
-                  <div className="relative mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-white/20 bg-gradient-to-br from-sky-300 via-slate-200 to-slate-500 shadow-soft">
-                    <div className="absolute inset-4 rounded-full border border-white/30 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.95),rgba(148,163,184,0.45))]" />
-                    <div className="absolute inset-0 flex items-center justify-center text-4xl font-black tracking-[0.2em] text-slate-900/70">
-                      VP
-                    </div>
+                  <div className="relative mb-6 h-36 w-36 overflow-hidden rounded-full border-4 border-white/20 bg-gradient-to-br from-sky-300 via-slate-200 to-slate-500 shadow-soft">
+                    <img
+                      src={profileImage}
+                      alt="Nguyễn Hữu Vĩnh Phát"
+                      className="absolute inset-0 h-full w-full scale-[1] object-cover object-[50%_18%]"
+                    />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.16),transparent_55%)]" />
                   </div>
                   <h1 className="text-3xl font-black uppercase tracking-[0.08em] text-white">Vĩnh Phát</h1>
                   <p className="mt-2 rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-xs font-bold uppercase tracking-[0.22em] text-sky-100">
@@ -339,7 +342,7 @@ export default function App() {
                 <SectionTitle>Phù hợp với vai trò</SectionTitle>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                   {['Onboarding khách hàng', 'Hỗ trợ & chăm sóc', 'Theo dõi quy trình', 'Tối ưu trải nghiệm'].map((item) => (
-                    <div key={item} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
+                    <div key={item} className="flex min-h-14 items-center justify-center rounded-2xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold tracking-[-0.01em] whitespace-nowrap text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-4 sm:text-sm">
                       {item}
                     </div>
                   ))}
