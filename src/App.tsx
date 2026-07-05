@@ -186,7 +186,7 @@ export default function App() {
                     Customer Success Executive
                   </p>
                   <p className="mt-4 max-w-xs text-sm leading-6 text-slate-200/90">
-                    Ứng viên định hướng kết hợp công nghệ, tư duy dịch vụ và vận hành để tạo trải nghiệm khách hàng rõ ràng, mạch lạc và có thể đo lường.
+                    Em định hướng kết hợp công nghệ, tư duy dịch vụ và vận hành để tạo trải nghiệm khách hàng rõ ràng, mạch lạc và có thể đo lường.
                   </p>
                 </motion.div>
 
@@ -270,10 +270,10 @@ export default function App() {
               <div className="space-y-4 text-[15px] leading-8 text-slate-700 dark:text-slate-200">
                 <p>
                   Mong muốn ứng tuyển vị trí Customer Success Executive tại Filum.ai. Với nền tảng vừa đủ về công nghệ thông tin cùng tư duy hệ thống,
-                  tôi hướng đến việc làm cầu nối giữa sản phẩm và khách hàng, tối ưu trải nghiệm sử dụng và hỗ trợ giải quyết vấn đề nhanh, rõ ràng.
+                  Em hướng đến việc làm cầu nối giữa sản phẩm và khách hàng, tối ưu trải nghiệm sử dụng và hỗ trợ giải quyết vấn đề nhanh, rõ ràng.
                 </p>
                 <p>
-                  Tôi là người chủ động, cẩn thận và có xu hướng cải tiến quy trình để giảm ma sát trong vận hành. Mục tiêu dài hạn là trở thành một
+                  Em là người chủ động, cẩn thận và có xu hướng cải tiến quy trình để giảm ma sát trong vận hành. Mục tiêu dài hạn là trở thành một
                   nhân sự có khả năng đồng hành khách hàng bằng dữ liệu, quy trình và sự thấu hiểu.
                 </p>
               </div>
@@ -359,7 +359,7 @@ export default function App() {
             >
               <p className="font-semibold text-slate-900 dark:text-white">Cam kết cá nhân</p>
               <p className="mt-2">
-               Tôi cam kết luôn đặt khách hàng làm trung tâm trong mọi hoạt động, chủ động lắng nghe, thấu hiểu nhu cầu và mang đến những giải pháp phù hợp nhằm tạo ra trải nghiệm tích cực. Tôi mong muốn xây dựng mối quan hệ hợp tác lâu dài với khách hàng thông qua sự tận tâm, trách nhiệm và tinh thần không ngừng học hỏi để nâng cao chất lượng dịch vụ.
+               Em cam kết luôn đặt khách hàng làm trung tâm trong mọi hoạt động, chủ động lắng nghe, thấu hiểu nhu cầu và mang đến những giải pháp phù hợp nhằm tạo ra trải nghiệm tích cực. Tôi mong muốn xây dựng mối quan hệ hợp tác lâu dài với khách hàng thông qua sự tận tâm, trách nhiệm và tinh thần không ngừng học hỏi để nâng cao chất lượng dịch vụ.
               </p>
             </motion.footer>
           </section>
