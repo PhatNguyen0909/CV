@@ -342,7 +342,7 @@ export default function App() {
                 <SectionTitle>Phù hợp với vai trò</SectionTitle>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                   {['Onboarding khách hàng', 'Hỗ trợ & chăm sóc', 'Theo dõi quy trình', 'Tối ưu trải nghiệm'].map((item) => (
-                    <div key={item} className="flex min-h-14 items-center justify-center rounded-2xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold tracking-[-0.01em] whitespace-nowrap text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-4 sm:text-sm">
+                    <div key={item} className="flex min-h-14 items-center justify-center rounded-2xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold tracking-[-0.01em] whitespace-nowrap text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-4 ">
                       {item}
                     </div>
                   ))}
