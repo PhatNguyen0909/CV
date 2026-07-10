@@ -183,7 +183,7 @@ export default function App() {
                   </div>
                   <h1 className="text-3xl font-black uppercase tracking-[0.08em] text-white">Vĩnh Phát</h1>
                   <p className="mt-2 rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-xs font-bold uppercase tracking-[0.22em] text-sky-100">
-                    Customer Success Executive
+                    Customer Success Intern
                   </p>
                   <p className="mt-4 max-w-xs text-sm leading-6 text-slate-200/90">
                     Em định hướng kết hợp công nghệ, tư duy dịch vụ và vận hành để tạo trải nghiệm khách hàng rõ ràng, mạch lạc và có thể đo lường.
@@ -253,7 +253,7 @@ export default function App() {
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <Badge>Customer Success Executive</Badge>
+                  <Badge>Customer Success Intern</Badge>
                   <h1 className="mt-4 text-3xl font-black uppercase tracking-[0.06em] sm:text-5xl">Nguyễn Hữu Vĩnh Phát</h1>
                 </div>
               </div>
@@ -269,7 +269,7 @@ export default function App() {
               <SectionTitle>Mục tiêu nghề nghiệp</SectionTitle>
               <div className="space-y-4 text-[15px] leading-8 text-slate-700 dark:text-slate-200">
                 <p>
-                  Mong muốn ứng tuyển vị trí Customer Success Executive tại Filum.ai. Với nền tảng vừa đủ về công nghệ thông tin cùng tư duy hệ thống,
+                  Mong muốn ứng tuyển vị trí Customer Success Intern tại Filum.ai. Với nền tảng vừa đủ về công nghệ thông tin cùng tư duy hệ thống,
                   Em hướng đến việc làm cầu nối giữa sản phẩm và khách hàng, tối ưu trải nghiệm sử dụng và hỗ trợ giải quyết vấn đề nhanh, rõ ràng.
                 </p>
                 <p>
