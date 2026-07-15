@@ -29,28 +29,31 @@ button {
   font: inherit;
 }
 
+
+
 @media print {
   @page {
-    margin: 12mm;
+    size: A4;
+    margin: 10mm;
   }
 
   html,
   body {
-    background: white !important;
-    color: black !important;
+    margin: 0;
+    padding: 0;
+    width: 210mm;
+    height: 297mm;
+    background: black;
+
   }
 
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+  #cv {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 0;
+    transform: none;
+    box-shadow: none;
 
-  .print\:hidden,
-  .print\:block {
-    display: block !important;
-  }
-
-  .print\:hidden {
-    display: none !important;
   }
 }

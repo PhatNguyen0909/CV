@@ -11,7 +11,7 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    year: '2025',
+    year: '2024',
     title: 'Đồ án Công nghệ xây dựng ứng dụng web delivery',
     team: 'Vai trò: Trưởng nhóm',
     points: [
@@ -30,7 +30,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    year: '2024',
+    year: '2025',
     title: 'Khu vui chơi giải trí phức hợp MiaTown',
     team: 'Vai trò: Trưởng nhóm văn hành',
     points: [
@@ -150,14 +150,14 @@ export default function App() {
               {darkMode ? <SunIcon /> : <MoonIcon />}
               {darkMode ? 'Light mode' : 'Dark mode'}
             </button>
-            <button
+            {/* <button
               type="button"
               onClick={handlePrint}
               className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-sky-700"
             >
               <DownloadIcon />
               Download PDF
-            </button>
+            </button> */}
           </div>
         </div>
 
@@ -359,7 +359,7 @@ export default function App() {
             >
               <p className="font-semibold text-slate-900 dark:text-white">Cam kết cá nhân</p>
               <p className="mt-2">
-               Em cam kết luôn đặt khách hàng làm trung tâm trong mọi hoạt động, chủ động lắng nghe, thấu hiểu nhu cầu và mang đến những giải pháp phù hợp nhằm tạo ra trải nghiệm tích cực. Tôi mong muốn xây dựng mối quan hệ hợp tác lâu dài với khách hàng thông qua sự tận tâm, trách nhiệm và tinh thần không ngừng học hỏi để nâng cao chất lượng dịch vụ.
+                m cam kết luôn đặt khách hàng làm trung tâm trong mọi hoạt động, chủ động lắng nghe, thấu hiểu nhu cầu và mang đến những giải pháp phù hợp nhằm tạo ra trải nghiệm tích cực. Tôi mong muốn xây dựng mối quan hệ hợp tác lâu dài với khách hàng thông qua sự tận tâm, trách nhiệm và tinh thần không ngừng học hỏi để nâng cao chất lượng dịch vụ.
               </p>
             </motion.footer>
           </section>
