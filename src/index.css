@@ -35,6 +35,14 @@ button {
   }
 }
 
+html.pdf-export-mode #cv,
+html.pdf-export-mode #cv *,
+html.pdf-export-mode #cv *::before,
+html.pdf-export-mode #cv *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
 @media print {
   @page {
     size: A4;
@@ -71,117 +79,11 @@ button {
     min-height: 0 !important;
     overflow: visible !important;
     transform: none !important;
-    font-size: 7px;
-    line-height: 1.15;
-  }
-
-  #cv h1 {
-    font-size: 12px !important;
-    line-height: 1 !important;
-  }
-
-  #cv h2 {
-    font-size: 8px !important;
-    line-height: 1.05 !important;
-  }
-
-  #cv h3 {
-    font-size: 9px !important;
-    line-height: 1.05 !important;
-  }
-
-  #cv p,
-  #cv li,
-  #cv span {
-    font-size: inherit;
-    line-height: inherit;
   }
 
   #cv .print-avoid-break {
     break-inside: avoid;
     page-break-inside: avoid;
-  }
-
-  #cv .space-y-8 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 0.5rem !important;
-  }
-
-  #cv .space-y-6 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 0.4rem !important;
-  }
-
-  #cv .space-y-4 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 0.25rem !important;
-  }
-
-  #cv .gap-6 {
-    gap: 0.35rem !important;
-  }
-
-  #cv .gap-4 {
-    gap: 0.25rem !important;
-  }
-
-  #cv .p-8 {
-    padding: 0.45rem !important;
-  }
-
-  #cv .p-6 {
-    padding: 0.35rem !important;
-  }
-
-  #cv .p-5 {
-    padding: 0.3rem !important;
-  }
-
-  #cv .p-4 {
-    padding: 0.25rem !important;
-  }
-
-  #cv .mt-8 {
-    margin-top: 0.6rem !important;
-  }
-
-  #cv .mt-6 {
-    margin-top: 0.45rem !important;
-  }
-
-  #cv .mt-4 {
-    margin-top: 0.3rem !important;
-  }
-
-  #cv .mb-6 {
-    margin-bottom: 0.35rem !important;
-  }
-
-  #cv .mb-4 {
-    margin-bottom: 0.25rem !important;
-  }
-
-  #cv .mb-2 {
-    margin-bottom: 0.15rem !important;
-  }
-
-  #cv .h-36,
-  #cv .w-36 {
-    height: 5rem !important;
-    width: 5rem !important;
-  }
-
-  #cv .text-3xl {
-    font-size: 0.85rem !important;
-  }
-
-  #cv .text-lg {
-    font-size: 0.72rem !important;
-  }
-
-  #cv .text-sm {
-    font-size: 0.62rem !important;
-  }
-
-  #cv .text-xs {
-    font-size: 0.52rem !important;
   }
 
   #cv *,

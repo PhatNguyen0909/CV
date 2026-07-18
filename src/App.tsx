@@ -93,7 +93,7 @@ function DownloadIcon() {
 
 function Badge({ children }: { children: string }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-sky-700 dark:text-sky-300">
+    <span className="pdf-fix-pill inline-flex min-h-8 items-center justify-center rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-center text-xs leading-tight font-semibold tracking-[0.18em] text-sky-700 dark:text-sky-300">
       {children}
     </span>
   );
@@ -103,7 +103,7 @@ function SectionTitle({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3">
       <span className="h-8 w-2 rounded-full bg-sky-500" />
-      <h2 className="text-lg font-extrabold uppercase tracking-[0.16em] text-slate-900 dark:text-white">{children}</h2>
+      <h2 className="pdf-fix-title text-lg font-extrabold uppercase tracking-[0.16em] text-slate-900 dark:text-white">{children}</h2>
     </div>
   );
 }
@@ -129,63 +129,93 @@ export default function App() {
 
   const exportPDF = async () => {
     const [{ default: html2canvas }, { default: JsPDF }] = await Promise.all([import('html2canvas'), import('jspdf')]);
-    const cvElement = document.getElementById('cv');
+    const cvElement = document.getElementById('cv-content');
 
     if (!cvElement) {
       return;
     }
 
-    const canvas = await html2canvas(cvElement, {
-      scale: 4,
-      useCORS: true,
-      backgroundColor: '#000000',
-      scrollX: 0,
-      scrollY: 0,
-      windowWidth: cvElement.scrollWidth,
-      windowHeight: cvElement.scrollHeight,
-      onclone: (clonedDocument) => {
-        const clonedCv = clonedDocument.getElementById('cv');
+    if (document.fonts?.ready) {
+      await document.fonts.ready;
+    }
 
-        if (!clonedCv) {
-          return;
-        }
+    const sourceWidth = cvElement.scrollWidth;
+    const sourceHeight = cvElement.scrollHeight;
 
-        const toolbar = clonedCv.querySelector('div.mb-6.flex.flex-wrap.items-center.justify-between.gap-3');
-        toolbar?.remove();
+    document.documentElement.classList.add('pdf-export-mode');
 
-        clonedCv.style.width = `${cvElement.scrollWidth}px`;
-        clonedCv.style.maxWidth = 'none';
-        clonedCv.style.height = 'auto';
-        clonedCv.style.overflow = 'visible';
-        clonedCv.style.background = '#000000';
-
-        clonedDocument.documentElement.style.background = '#000000';
-        clonedDocument.body.style.background = '#000000';
-
-        clonedCv.querySelectorAll('*').forEach((node) => {
-          if (node instanceof HTMLElement) {
-            node.style.animation = 'none';
-            node.style.transition = 'none';
-          }
+    try {
+      await new Promise<void>((resolve) => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => resolve());
         });
-      },
-    });
+      });
 
-    const pdf = new JsPDF({ orientation: 'p', unit: 'mm', format: 'a4', compress: true });
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const pageHeight = pdf.internal.pageSize.getHeight();
-    const imageWidth = canvas.width;
-    const imageHeight = canvas.height;
-    const scale = Math.min(pageWidth / imageWidth, pageHeight / imageHeight);
-    const renderWidth = imageWidth * scale;
-    const renderHeight = imageHeight * scale;
-    const x = (pageWidth - renderWidth) / 2;
-    const y = (pageHeight - renderHeight) / 2;
+      const canvas = await html2canvas(cvElement, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#0f172a',
+        scrollX: 0,
+        scrollY: 0,
+        width: sourceWidth,
+        height: sourceHeight,
+        windowWidth: sourceWidth,
+        windowHeight: sourceHeight,
+        onclone: (clonedDocument) => {
+          const style = clonedDocument.createElement('style');
+          style.textContent = `
+            #cv-content, #cv-content * {
+              animation: none !important;
+              transition: none !important;
+              text-rendering: geometricPrecision !important;
+            }
 
-    pdf.setFillColor(0, 0, 0);
-    pdf.rect(0, 0, pageWidth, pageHeight, 'F');
-    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', x, y, renderWidth, renderHeight, undefined, 'FAST');
-    pdf.save('nguyen-huu-vinh-phat-cv.pdf');
+            #cv-content .pdf-fix-pill {
+              display: inline-flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              line-height: 1.2 !important;
+              white-space: nowrap !important;
+            }
+
+            #cv-content .pdf-fix-title {
+              line-height: 1.2 !important;
+            }
+          `;
+
+          clonedDocument.head.appendChild(style);
+        },
+      });
+
+      const pdf = new JsPDF({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+        compress: true,
+      });
+
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const margin = 8;
+      const printableWidth = pageWidth - margin * 2;
+      const printableHeight = pageHeight - margin * 2;
+      const widthScale = printableWidth / canvas.width;
+      const heightScale = printableHeight / canvas.height;
+      const scale = Math.min(widthScale, heightScale);
+      const renderWidth = canvas.width * scale;
+      const renderHeight = canvas.height * scale;
+      const renderX = (pageWidth - renderWidth) / 2;
+      const renderY = (pageHeight - renderHeight) / 2;
+      const imageData = canvas.toDataURL('image/png');
+
+      pdf.setFillColor(15, 23, 42);
+      pdf.rect(0, 0, pageWidth, pageHeight, 'F');
+      pdf.addImage(imageData, 'PNG', renderX, renderY, renderWidth, renderHeight, undefined, 'FAST');
+
+      pdf.save('nguyen-huu-vinh-phat-cv.pdf');
+    } finally {
+      document.documentElement.classList.remove('pdf-export-mode');
+    }
   };
 
   return (
@@ -218,7 +248,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] print:grid print:grid-cols-[280px_minmax(0,1fr)] print:gap-4">
+        <div id="cv-content" className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] print:grid print:grid-cols-[280px_minmax(0,1fr)] print:gap-4">
           <aside className="print-avoid-break overflow-hidden rounded-[2rem] border border-white/40 bg-slate-900 text-white shadow-soft dark:border-slate-800 print:rounded-none print:border-0">
             <div className="relative p-6 sm:p-8 lg:min-h-[1080px] print:min-h-0 print:p-0">
               <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(14,165,233,0.35),rgba(15,23,42,0.96))] print:hidden" />
@@ -239,7 +269,7 @@ export default function App() {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.16),transparent_55%)]" />
                   </div>
                   <h1 className="text-3xl font-black uppercase tracking-[0.08em] text-white">Vinh Phat</h1>
-                  <p className="mt-2 rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-xs font-bold uppercase tracking-[0.22em] text-sky-100">
+                  <p className="pdf-fix-pill mt-2 inline-flex min-h-9 items-center justify-center rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-center text-xs leading-tight font-bold uppercase tracking-[0.22em] text-sky-100">
                     AI Operator & Enablement Intern 
                   </p>
                   <p className="mt-4 max-w-xs text-sm leading-6 text-slate-200/90">
@@ -351,7 +381,7 @@ export default function App() {
                     <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-amber-300" />
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div>
-                        <div className="inline-flex rounded-full border border-sky-500/15 bg-sky-500/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300">
+                        <div className="pdf-fix-pill inline-flex min-h-8 items-center justify-center rounded-full border border-sky-500/15 bg-sky-500/10 px-3 py-1 text-xs leading-tight font-bold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300">
                           {experience.team}
                         </div>
                         <h3 className="mt-3 text-lg font-extrabold text-slate-900 dark:text-white">{experience.title}</h3>
