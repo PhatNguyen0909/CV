@@ -12,57 +12,60 @@ type Experience = {
 const experiences: Experience[] = [
   {
     year: '2024',
-    title: 'Web Delivery Application Development Project',
-    team: 'Role: Team Lead',
+    title: 'Ứng dụng giao hàng trên nền tảng web',
+    team: 'Vai trò: Trưởng nhóm | Lập trình web',
     points: [
-      'Researched user needs, analyzed business requirements, and built an optimized ordering flow for the web app.',
-      'Designed the UX/UI to be clear and fast, suitable for a real-time experience.',
-      'Worked with the team to standardize the process and deliver the product on schedule.',
+      'Phân tích yêu cầu và thiết kế quy trình đặt hàng cho ứng dụng web với trải nghiệm rõ ràng, dễ sử dụng.',
+      'Phối hợp cùng nhóm để xây dựng luồng ứng dụng, giao diện và kế hoạch bàn giao sản phẩm.',
+      'Thực hành chuyển yêu cầu sản phẩm thành các màn hình và đầu việc có thể triển khai.',
     ],
   },
   {
     year: '2024',
-    title: 'Professional E-commerce Website Design Project',
-    team: 'Role: Project Member',
+    title: 'Website thương mại điện tử',
+    team: 'Vai trò: Thành viên dự án | Lập trình web',
     points: [
-      'Studied online shopping behavior to propose product layouts and conversion touchpoints.',
-      'Structured data logically to support content management and product update workflows.',
-    ],
-  },
-  {
-    year: '2025',
-    title: 'MiaTown Entertainment Complex',
-    team: 'Role: Operations Team Lead',
-    points: [
-      'Analyzed service processes and real-world operations to propose customer experience improvements.',
-      'Finalized standardized content and supported presentations and negotiation in a practical context.',
+      'Sắp xếp thông tin sản phẩm và nội dung trang cho giao diện e-commerce dễ bảo trì.',
+      'Chú trọng tính dễ sử dụng, bố cục responsive và luồng tương tác rõ ràng khi xây dựng website.',
     ],
   },
   {
     year: '2026',
-    title: 'Vinh Ky Restaurant',
-    team: 'Role: Store Manager',
+    title: 'Food Hub',
+    team: 'Dự án cá nhân | Kiến trúc Microservice',
     points: [
-      'Coordinated staff, planned budgets, and maintained the store’s daily operations.',
-      'Used digital tools to track operations, manage orders, and support customer care.',
-      'Standardized invoices and customer feedback to improve service quality.',
+      'Xây dựng dự án cá nhân theo định hướng kiến trúc microservice để tách biệt các thành phần và trách nhiệm của hệ thống.',
+      'Thiết kế và kiểm tra luồng giao tiếp thông qua API Gateway, tập trung vào khả năng định tuyến request giữa các service.',
+      'Sử dụng Postman để kiểm thử API Gateway và dùng GitHub Copilot hỗ trợ nghiên cứu, viết mã nguồn và xử lý lỗi trong quá trình phát triển.',
+    ],
+  },
+  {
+    year: '2026',
+    title: 'Web App quản lý tài chính quán Vĩnh Ký',
+    team: 'Dự án thực tế | Phát triển web',
+    points: [
+      'Phân tích nhu cầu thực tế của quán ăn và xây dựng web app hỗ trợ theo dõi hoạt động tài chính hằng ngày.',
+      'Thiết kế chức năng ghi nhận, tổng hợp doanh thu và chi phí để dữ liệu kinh doanh được quản lý tập trung.',
+      'Xây dựng báo cáo lợi nhuận giúp theo dõi tình hình kinh doanh và hỗ trợ đưa ra quyết định vận hành.',
     ],
   },
 ];
 
 const skills = [
-  'Systems thinking',
-  'Analysis & problem solving',
-  'Conversational English',
-  'Presentation & product demos',
-  'Project & process management',
+  'HTML / CSS / JavaScript',
+  'React & Vite',
+  'Lập trình web responsive',
+  'Git & quản lý mã nguồn',
+  'Microservice & API Gateway',
+  'Kiểm thử API với Postman',
+  'Tư duy giải quyết vấn đề',
 ];
 
-const tools = ['Figma', 'Visual Studio', 'Office / Excel', 'Canva', 'AI Tools'];
+const tools = ['React', 'TypeScript', 'Postman', 'GitHub Copilot', 'Visual Studio Code', 'Git'];
 
 const highlights = [
-  { label: '4', value: 'Notable achievements' },
-  { label: '100%', value: 'Commitment to quality' },
+  { label: '4', value: 'Dự án lập trình' },
+  { label: '2026', value: 'Dự kiến tốt nghiệp CNTT' },
 ];
 
 function SunIcon() {
@@ -235,16 +238,16 @@ export default function App() {
               className="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300"
             >
               {darkMode ? <SunIcon /> : <MoonIcon />}
-              {darkMode ? 'Light mode' : 'Dark mode'}
+              {darkMode ? 'Chế độ sáng' : 'Chế độ tối'}
             </button>
-            <button
+            {/* <button
               type="button"
               onClick={exportPDF}
               className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-sky-700"
             >
               <DownloadIcon />
-              Download PDF
-            </button>
+              Tải CV dạng PDF
+            </button> */}
           </div>
         </div>
 
@@ -270,10 +273,10 @@ export default function App() {
                   </div>
                   <h1 className="text-3xl font-black uppercase tracking-[0.08em] text-white">Vinh Phat</h1>
                   <p className="pdf-fix-pill mt-2 inline-flex min-h-9 items-center justify-center rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-center text-xs leading-tight font-bold uppercase tracking-[0.22em] text-sky-100">
-                    AI Operator & Enablement Intern 
+                    THỰC TẬP SINH LẬP TRÌNH
                   </p>
                   <p className="mt-4 max-w-xs text-sm leading-6 text-slate-200/90">
-                    I aim to combine technology, service mindset, and operations to create a clear, structured, and measurable customer experience.
+                    Sinh viên Công nghệ Thông tin định hướng xây dựng các ứng dụng web thực tế, dễ bảo trì và thân thiện với người dùng.
                   </p>
                 </motion.div>
 
@@ -288,25 +291,26 @@ export default function App() {
 
                 <section className="mt-8 space-y-8">
                   <div>
-                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Contact</p>
+                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Liên hệ</p>
                     <div className="space-y-4 text-sm text-slate-100/95">
-                      <ContactItem label="Phone" value="0908012821" />
+                      <ContactItem label="Điện thoại" value="0908012821" />
                       <ContactItem label="Email" value="nhiknh112233@gmail.com" />
-                      <ContactItem label="Location" value="Ho Chi Minh City" />
+                      <ContactItem label="Địa điểm" value="TP. Hồ Chí Minh" />
+                      <ContactItem label="GitHub" value="github.com/PhatNguyen0909" href="https://github.com/PhatNguyen0909" />
                     </div>
                   </div>
 
                   <div>
-                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Education</p>
+                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Học vấn</p>
                     <div className="rounded-2xl border border-white/10 bg-white/8 p-4 text-sm text-slate-100 backdrop-blur-sm">
                       <p className="font-bold">Saigon University</p>
-                      <p className="mt-1 text-slate-200">Bachelor of Information Technology</p>
+                      <p className="mt-1 text-slate-200">Cử nhân Công nghệ Thông tin</p>
                       <p className="mt-2 text-sky-200">2022 - 2026</p>
                     </div>
                   </div>
 
                   <div>
-                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Skills</p>
+                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Kỹ năng</p>
                     <div className="flex flex-wrap gap-2">
                       {skills.map((skill) => (
                         <span key={skill} className="rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-2 text-xs font-semibold text-slate-100">
@@ -317,7 +321,7 @@ export default function App() {
                   </div>
 
                   <div>
-                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Tools</p>
+                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200">Công cụ</p>
                     <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-100">
                       {tools.map((tool) => (
                         <span key={tool} className="rounded-2xl border border-white/10 bg-white/8 px-3 py-2 text-center backdrop-blur-sm">
@@ -340,7 +344,7 @@ export default function App() {
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <Badge>AI Operator & Enablement Intern </Badge>
+                  <Badge>THỰC TẬP SINH LẬP TRÌNH | WEB</Badge>
                   <h1 className="mt-4 text-3xl font-black uppercase tracking-[0.06em] sm:text-5xl">Nguyen Huu Vinh Phat</h1>
                 </div>
               </div>
@@ -353,21 +357,21 @@ export default function App() {
               transition={{ duration: 0.55 }}
               className="print-avoid-break space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50"
             >
-              <SectionTitle>Professional Objective</SectionTitle>
+              <SectionTitle>Mục tiêu nghề nghiệp</SectionTitle>
               <div className="space-y-4 text-[15px] leading-8 text-slate-700 dark:text-slate-200">
                 <p>
-                  I am applying for the AI Operator & Enablement Intern  position at Filum.ai. With a solid foundation in information technology and systems thinking,
-                  I aim to act as a bridge between the product and customers, optimize the user experience, and help resolve issues quickly and clearly.
+                  Tôi ứng tuyển vị trí Thực tập sinh Lập trình để phát triển kinh nghiệm phần mềm trong môi trường làm việc chuyên nghiệp. Là sinh viên Công nghệ Thông tin,
+                  tôi đã thực hiện các dự án web và xây dựng nền tảng về frontend, giao diện responsive và tư duy giải quyết vấn đề có hệ thống.
                 </p>
                 <p>
-                  I am proactive, detail-oriented, and inclined to improve processes to reduce operational friction. My long-term goal is to become a professional
-                  who can support customers through data, process, and empathy.
+                  Tôi mong muốn học hỏi qua hoạt động review code, đóng góp vào các công việc thực tế của sản phẩm và cải thiện khả năng viết mã nguồn sạch, đáng tin cậy.
+                  Tôi có tinh thần trách nhiệm, chú ý đến chi tiết và chủ động phối hợp trong mọi nhiệm vụ.
                 </p>
               </div>
             </motion.section>
 
             <section className="space-y-4">
-              <SectionTitle>Featured Projects & Experience</SectionTitle>
+              <SectionTitle>Dự án lập trình web</SectionTitle>
               <div className="space-y-4">
                 {experiences.map((experience, index) => (
                   <motion.article
@@ -411,11 +415,11 @@ export default function App() {
                 transition={{ duration: 0.5 }}
                 className="print-avoid-break rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50"
               >
-                <SectionTitle>Key Strengths</SectionTitle>
+                <SectionTitle>Thế mạnh kỹ thuật</SectionTitle>
                 <div className="mt-4 space-y-3 text-[15px] leading-7 text-slate-700 dark:text-slate-300">
-                  <p>Prioritizes clear communication, stays focused on goals, and adapts easily to fast-paced environments.</p>
-                  <p>Has a technology background that helps me understand products quickly and collaborate well with technical, operations, and customer-facing teams.</p>
-                  <p>Enjoys working with processes and data while remaining flexible enough to handle real-world situations.</p>
+                  <p>Xây dựng giao diện rõ ràng, responsive và chú trọng khả năng sử dụng trên nhiều kích thước màn hình.</p>
+                  <p>Biết phân rã yêu cầu thành các đầu việc thực tế, tìm hiểu lỗi có hệ thống và nhanh chóng học công cụ mới.</p>
+                  <p>Làm việc cẩn thận với cấu trúc, cách đặt tên và tính nhất quán để mã nguồn dễ bảo trì.</p>
                 </div>
               </motion.div>
 
@@ -426,9 +430,9 @@ export default function App() {
                 transition={{ duration: 0.5 }}
                 className="print-avoid-break rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50"
               >
-                <SectionTitle>Fit for the Role</SectionTitle>
+                <SectionTitle>Định hướng phát triển</SectionTitle>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                  {['Customer onboarding', 'Support & care', 'Process tracking', 'Experience optimization'].map((item) => (
+                  {['Lập trình frontend', 'Triển khai giao diện', 'Debug & kiểm thử', 'Làm việc nhóm'].map((item) => (
                     <div key={item} className="flex min-h-14 items-center justify-center rounded-2xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold tracking-[-0.01em] whitespace-nowrap text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-4 ">
                       {item}
                     </div>
@@ -444,9 +448,9 @@ export default function App() {
               transition={{ duration: 0.6 }}
               className="print-avoid-break rounded-3xl border border-dashed border-sky-500/30 bg-sky-500/5 p-5 text-sm leading-7 text-slate-700 dark:text-slate-300 print:border-slate-300 print:bg-white"
             >
-              <p className="font-semibold text-slate-900 dark:text-white">Personal Commitment</p>
+              <p className="font-semibold text-slate-900 dark:text-white">Cam kết phát triển</p>
               <p className="mt-2">
-                I am committed to keeping customers at the center of every activity, listening proactively, understanding their needs, and delivering suitable solutions that create positive experiences. I hope to build long-term partnerships with customers through dedication, responsibility, and a continuous learning mindset to improve service quality.
+                Tôi cam kết học hỏi từ các lập trình viên giàu kinh nghiệm, hoàn thành công việc đáng tin cậy và liên tục củng cố nền tảng kỹ thuật thông qua thực hành và tiếp nhận phản hồi.
               </p>
             </motion.footer>
           </section>
@@ -456,11 +460,17 @@ export default function App() {
   );
 }
 
-function ContactItem({ label, value }: { label: string; value: string }) {
+function ContactItem({ label, value, href }: { label: string; value: string; href?: string }) {
   return (
     <div className="print-avoid-break rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur-sm">
       <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">{label}</p>
-      <p className="mt-2 break-words font-semibold text-white">{value}</p>
+      {href ? (
+        <a className="mt-2 block break-words font-semibold text-white transition hover:text-sky-200" href={href} target="_blank" rel="noreferrer">
+          {value}
+        </a>
+      ) : (
+        <p className="mt-2 break-words font-semibold text-white">{value}</p>
+      )}
     </div>
   );
 }
