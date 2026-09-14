@@ -15,7 +15,7 @@ const experiences: Experience[] = [
     title: 'Ứng dụng giao hàng trên nền tảng web',
     team: 'Vai trò: Trưởng nhóm | Lập trình web',
     points: [
-      'Phân tích yêu cầu và thiết kế quy trình đặt hàng cho ứng dụng web với trải nghiệm rõ ràng, dễ sử dụng.',
+      'Phân tích yêu cầu và thiết kế quy trình đặt hàng cho ứng dụng web với trải nghiệm rõ ràng.',
       'Phối hợp cùng nhóm để xây dựng luồng ứng dụng, giao diện và kế hoạch bàn giao sản phẩm.',
       'Thực hành chuyển yêu cầu sản phẩm thành các màn hình và đầu việc có thể triển khai.',
     ],
@@ -42,10 +42,10 @@ const experiences: Experience[] = [
   {
     year: '2026',
     title: 'Web App quản lý tài chính quán Vĩnh Ký',
-    team: 'Dự án thực tế | Phát triển web',
+    team: 'Dự án thực tế cá nhân | Phát triển web',
     points: [
-      'Phân tích nhu cầu thực tế của quán ăn và xây dựng web app hỗ trợ theo dõi hoạt động tài chính hằng ngày.',
-      'Thiết kế chức năng ghi nhận, tổng hợp doanh thu và chi phí để dữ liệu kinh doanh được quản lý tập trung.',
+      'Phân tích nhu cầu thực tế và xây dựng web app hỗ trợ theo dõi hoạt động tài chính hằng ngày.',
+      'Thiết kế chức năng ghi nhận, tổng hợp doanh thu và chi phí để dữ liệu được quản lý tập trung.',
       'Xây dựng báo cáo lợi nhuận giúp theo dõi tình hình kinh doanh và hỗ trợ đưa ra quyết định vận hành.',
     ],
   },
@@ -66,8 +66,10 @@ const tools = [
   'TypeScript',
   'Postman',
   'GitHub Copilot',
-  'Visual Studio Code',
+  'VSCode',
   'Git',
+  'Figma',
+  'Java',
 ];
 
 const highlights = [
@@ -121,7 +123,7 @@ function DownloadIcon() {
 
 function Badge({ children }: { children: string }) {
   return (
-    <span className='pdf-fix-pill inline-flex min-h-8 items-center justify-center rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-center text-xs leading-tight font-semibold tracking-[0.18em] text-sky-700 dark:text-sky-300'>
+    <span className='pdf-fix-pill inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-center text-[11px] leading-tight font-semibold tracking-[0.14em] text-sky-700 dark:text-sky-300'>
       {children}
     </span>
   );
@@ -321,7 +323,7 @@ export default function App() {
                   <h1 className='text-3xl font-black uppercase tracking-[0.08em] text-white'>
                     Vinh Phat
                   </h1>
-                  <p className='pdf-fix-pill mt-2 inline-flex min-h-9 items-center justify-center rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-center text-xs leading-tight font-bold uppercase tracking-[0.22em] text-sky-100'>
+                  <p className='pdf-fix-pill mt-2 inline-flex min-h-9 items-center justify-center whitespace-nowrap rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-center text-[11px] leading-tight font-bold uppercase tracking-[0.14em] text-sky-100'>
                     THỰC TẬP SINH LẬP TRÌNH
                   </p>
                   <p className='mt-4 max-w-xs text-sm leading-6 text-slate-200/90'>
@@ -425,7 +427,7 @@ export default function App() {
               <div className='flex flex-wrap items-start justify-between gap-4'>
                 <div>
                   <Badge>THỰC TẬP SINH LẬP TRÌNH | WEB</Badge>
-                  <h1 className='mt-4 text-3xl font-black uppercase tracking-[0.06em] sm:text-5xl'>
+                  <h1 className='mt-4 text-2xl font-black uppercase tracking-[0.06em] sm:text-5xl'>
                     Nguyen Huu Vinh Phat
                   </h1>
                 </div>
@@ -445,8 +447,9 @@ export default function App() {
                   Tôi ứng tuyển vị trí Thực tập sinh Lập trình để phát triển
                   kinh nghiệm phần mềm trong môi trường làm việc chuyên nghiệp.
                   Là sinh viên Công nghệ Thông tin, tôi đã thực hiện các dự án
-                  web và xây dựng nền tảng về frontend, giao diện responsive và
-                  tư duy giải quyết vấn đề có hệ thống.
+                  web và xây dựng nền tảng về react frontend, giao diện
+                  responsive hoặc backend và tư duy giải quyết vấn đề có hệ
+                  thống.
                 </p>
                 <p>
                   Tôi mong muốn học hỏi qua hoạt động review code, đóng góp vào
@@ -472,7 +475,7 @@ export default function App() {
                     <div className='absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-amber-300' />
                     <div className='flex flex-wrap items-start justify-between gap-3'>
                       <div>
-                        <div className='pdf-fix-pill inline-flex min-h-8 items-center justify-center rounded-full border border-sky-500/15 bg-sky-500/10 px-3 py-1 text-xs leading-tight font-bold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300'>
+                        <div className='pdf-fix-pill inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-full border border-sky-500/15 bg-sky-500/10 px-3 py-1 text-[11px] leading-tight font-bold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300'>
                           {experience.team}
                         </div>
                         <h3 className='mt-3 text-lg font-extrabold text-slate-900 dark:text-white'>
