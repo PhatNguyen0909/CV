@@ -269,12 +269,12 @@ export default function App() {
   };
 
   return (
-    <div className='min-h-[100dvh] bg-[#1d3557] text-slate-900 transition-colors duration-300 dark:bg-[#1d3557] dark:text-slate-100 print:min-h-0 print:bg-white print:text-black'>
+    <div className='flex min-h-[100dvh] justify-center overflow-x-hidden bg-[#1d3557] text-slate-900 transition-colors duration-300 dark:bg-[#1d3557] dark:text-slate-100 print:min-h-0 print:bg-white print:text-black'>
       <div className='pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#1d3557] print:hidden' />
 
       <main
         id='cv'
-        className='relative mx-auto w-full max-w-[440px] px-3 py-4 sm:max-w-5xl sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8 print:max-w-none print:px-0 print:py-0'
+        className='relative w-[calc(100vw-18px)] max-w-[420px] px-0 py-4 sm:w-full sm:max-w-5xl sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8 print:max-w-none print:px-0 print:py-0'
       >
         <div className='mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden'>
           <div className='flex items-center gap-3'>
@@ -299,9 +299,9 @@ export default function App() {
 
         <div
           id='cv-content'
-          className='grid gap-4 sm:gap-6 lg:grid-cols-[320px_minmax(0,1fr)] print:grid print:grid-cols-[280px_minmax(0,1fr)] print:gap-4'
+          className='grid w-full min-w-0 gap-4 sm:gap-6 lg:grid-cols-[320px_minmax(0,1fr)] print:grid print:grid-cols-[280px_minmax(0,1fr)] print:gap-4'
         >
-          <aside className='print-avoid-break overflow-hidden rounded-[2rem] border border-white/40 bg-[#2b4c6f] text-white shadow-soft dark:border-slate-800 print:rounded-none print:border-0'>
+          <aside className='print-avoid-break w-full min-w-0 overflow-hidden rounded-[2rem] border border-white/40 bg-[#2b4c6f] text-white shadow-soft dark:border-slate-800 print:rounded-none print:border-0'>
             <div className='relative bg-[#2b4c6f] p-5 sm:p-8 lg:min-h-[1080px] print:min-h-0 print:bg-white print:p-0'>
               <div className='absolute inset-0 bg-[#2b4c6f] print:hidden' />
               <div className='relative'>
