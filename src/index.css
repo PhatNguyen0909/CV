@@ -21,6 +21,10 @@ body {
   background: #0f172a;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 * {
   box-sizing: border-box;
 }

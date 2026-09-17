@@ -58,6 +58,8 @@ const skills = [
   'Git & quản lý mã nguồn',
   'Microservice & API Gateway',
   'Kiểm thử API với Postman',
+  'Prompt Engineering',
+  'GitHub Copilot & AI-assisted coding',
   'Tư duy giải quyết vấn đề',
 ];
 
@@ -66,10 +68,12 @@ const tools = [
   'TypeScript',
   'Postman',
   'GitHub Copilot',
+  'ChatGPT',
   'VSCode',
   'Git',
   'Figma',
   'Java',
+  'AI Tools',
 ];
 
 const highlights = [
@@ -265,16 +269,12 @@ export default function App() {
   };
 
   return (
-    <div className='min-h-[100dvh] bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 print:min-h-0 print:bg-white print:text-black'>
-      <div className='pointer-events-none fixed inset-0 overflow-hidden print:hidden'>
-        <div className='absolute -left-24 top-10 h-72 w-72 rounded-full bg-sky-400/25 blur-3xl' />
-        <div className='absolute right-0 top-32 h-80 w-80 rounded-full bg-amber-300/20 blur-3xl' />
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.1),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.08),_transparent_35%)]' />
-      </div>
+    <div className='min-h-[100dvh] bg-[#1d3557] text-slate-900 transition-colors duration-300 dark:bg-[#1d3557] dark:text-slate-100 print:min-h-0 print:bg-white print:text-black'>
+      <div className='pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#1d3557] print:hidden' />
 
       <main
         id='cv'
-        className='relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8 print:max-w-none print:px-0 print:py-0'
+        className='relative mx-auto w-full max-w-[440px] px-3 py-4 sm:max-w-5xl sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8 print:max-w-none print:px-0 print:py-0'
       >
         <div className='mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden'>
           <div className='flex items-center gap-3'>
@@ -299,12 +299,11 @@ export default function App() {
 
         <div
           id='cv-content'
-          className='grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] print:grid print:grid-cols-[280px_minmax(0,1fr)] print:gap-4'
+          className='grid gap-4 sm:gap-6 lg:grid-cols-[320px_minmax(0,1fr)] print:grid print:grid-cols-[280px_minmax(0,1fr)] print:gap-4'
         >
-          <aside className='print-avoid-break overflow-hidden rounded-[2rem] border border-white/40 bg-slate-900 text-white shadow-soft dark:border-slate-800 print:rounded-none print:border-0'>
-            <div className='relative p-6 sm:p-8 lg:min-h-[1080px] print:min-h-0 print:p-0'>
-              <div className='absolute inset-0 bg-[linear-gradient(145deg,rgba(14,165,233,0.35),rgba(15,23,42,0.96))] print:hidden' />
-              <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.14),_transparent_40%)] print:hidden' />
+          <aside className='print-avoid-break overflow-hidden rounded-[2rem] border border-white/40 bg-[#2b4c6f] text-white shadow-soft dark:border-slate-800 print:rounded-none print:border-0'>
+            <div className='relative bg-[#2b4c6f] p-5 sm:p-8 lg:min-h-[1080px] print:min-h-0 print:bg-white print:p-0'>
+              <div className='absolute inset-0 bg-[#2b4c6f] print:hidden' />
               <div className='relative'>
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
@@ -332,7 +331,7 @@ export default function App() {
                   </p>
                 </motion.div>
 
-                <div className='mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 print:mx-auto print:max-w-[240px] print:grid-cols-2 print:justify-items-center'>
+                <div className='mt-8 grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 print:mx-auto print:max-w-[240px] print:grid-cols-2 print:justify-items-center'>
                   {highlights.map((item) => (
                     <div
                       key={item.value}
@@ -357,7 +356,7 @@ export default function App() {
                       <ContactItem label='Điện thoại' value='0376122821' />
                       <ContactItem
                         label='Email'
-                        value='nhiknh112233@gmail.com'
+                        value='phatnguyen99204@gmail.com'
                       />
                       <ContactItem label='Địa điểm' value='TP. Hồ Chí Minh' />
                       <ContactItem
@@ -389,7 +388,7 @@ export default function App() {
                       {skills.map((skill) => (
                         <span
                           key={skill}
-                          className='rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-2 text-xs font-semibold text-slate-100'
+                          className='rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-2 text-[11px] font-semibold text-slate-100 sm:text-xs'
                         >
                           {skill}
                         </span>
