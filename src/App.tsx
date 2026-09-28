@@ -14,7 +14,7 @@ const experiences: Experience[] = [
   {
     year: '2024',
     title: 'Ứng dụng giao hàng trên nền tảng web',
-    team: 'Vai trò: Trưởng nhóm | Lập trình web',
+    team: 'Trưởng nhóm | Lập trình web',
     points: [
       'Phân tích yêu cầu và thiết kế quy trình đặt hàng cho ứng dụng web với trải nghiệm rõ ràng.',
       'Phối hợp cùng nhóm để xây dựng luồng ứng dụng, giao diện và kế hoạch bàn giao sản phẩm.',
@@ -24,7 +24,7 @@ const experiences: Experience[] = [
   {
     year: '2024',
     title: 'Website thương mại điện tử',
-    team: 'Vai trò: Thành viên dự án | Lập trình web',
+    team: 'Thành viên dự án | Lập trình web',
     points: [
       'Sắp xếp thông tin sản phẩm và nội dung trang cho giao diện e-commerce dễ bảo trì.',
       'Chú trọng tính dễ sử dụng, bố cục responsive và luồng tương tác rõ ràng khi xây dựng website.',
@@ -33,7 +33,7 @@ const experiences: Experience[] = [
   {
     year: '2026',
     title: 'Food Hub',
-    team: 'Dự án cá nhân | Kiến trúc Microservice',
+    team: 'Cá nhân | Kiến trúc Microservice',
     points: [
       'Xây dựng dự án cá nhân theo định hướng kiến trúc microservice để tách biệt các thành phần và trách nhiệm của hệ thống.',
       'Thiết kế và kiểm tra luồng giao tiếp thông qua API Gateway, tập trung vào khả năng định tuyến request giữa các service.',
@@ -43,7 +43,7 @@ const experiences: Experience[] = [
   {
     year: '2026',
     title: 'Web App quản lý tài chính quán Vĩnh Ký',
-    team: 'Dự án thực tế cá nhân | Phát triển web',
+    team: 'Thực tế cá nhân | Phát triển web',
     points: [
       'Phân tích nhu cầu thực tế và xây dựng web app hỗ trợ theo dõi hoạt động tài chính hằng ngày.',
       'Thiết kế chức năng ghi nhận, tổng hợp doanh thu và chi phí để dữ liệu được quản lý tập trung.',
@@ -127,20 +127,14 @@ function DownloadIcon() {
 }
 
 function Badge({ children }: { children: string }) {
-  return (
-    <span className='badge'>
-      {children}
-    </span>
-  );
+  return <span className='badge'>{children}</span>;
 }
 
 function SectionTitle({ children }: { children: string }) {
   return (
     <div className='section-title'>
       <span className='section-title-accent' />
-      <h2 className='section-title-text'>
-        {children}
-      </h2>
+      <h2 className='section-title-text'>{children}</h2>
     </div>
   );
 }
@@ -252,10 +246,7 @@ export default function App() {
         <div className='cv-glow-amber' />
       </div>
 
-      <main
-        id='cv'
-        className='cv-main'
-      >
+      <main id='cv' className='cv-main'>
         <div className='cv-toolbar'>
           <div className='flex items-center gap-3'>
             <button
@@ -277,10 +268,7 @@ export default function App() {
           </div>
         </div>
 
-        <div
-          id='cv-content'
-          className='cv-content-grid'
-        >
+        <div id='cv-content' className='cv-content-grid'>
           <aside className='cv-sidebar'>
             <div className='cv-sidebar-inner'>
               <div className='cv-sidebar-overlay' />
@@ -294,17 +282,13 @@ export default function App() {
                   <div className='profile-avatar'>
                     <img
                       src={profileImage}
-                      alt='Nguyen Huu Vinh Phat'
+                      alt='Nguyễn Hữu Vĩnh Phát'
                       className='profile-image'
                     />
                     <div className='profile-glow' />
                   </div>
-                  <h1 className='profile-name'>
-                    Vinh Phat
-                  </h1>
-                  <p className='profile-role'>
-                    THỰC TẬP SINH LẬP TRÌNH
-                  </p>
+                  <h1 className='profile-name'>Vĩnh Phát</h1>
+                  <p className='profile-role'>THỰC TẬP SINH LẬP TRÌNH</p>
                   <p className='profile-description'>
                     Sinh viên Công nghệ Thông tin định hướng xây dựng các ứng
                     dụng web thực tế, dễ bảo trì và thân thiện với người dùng.
@@ -313,25 +297,16 @@ export default function App() {
 
                 <div className='highlights-grid'>
                   {highlights.map((item) => (
-                    <div
-                      key={item.value}
-                      className='highlight-item'
-                    >
-                      <p className='highlight-value'>
-                        {item.label}
-                      </p>
-                      <p className='highlight-label'>
-                        {item.value}
-                      </p>
+                    <div key={item.value} className='highlight-item'>
+                      <p className='highlight-value'>{item.label}</p>
+                      <p className='highlight-label'>{item.value}</p>
                     </div>
                   ))}
                 </div>
 
                 <section className='sidebar-sections'>
                   <div>
-                    <p className='sidebar-section-title'>
-                      Liên hệ
-                    </p>
+                    <p className='sidebar-section-title'>Liên hệ</p>
                     <div className='contact-list'>
                       <ContactItem label='Điện thoại' value='0376122821' />
                       <ContactItem
@@ -348,9 +323,7 @@ export default function App() {
                   </div>
 
                   <div>
-                    <p className='sidebar-section-title'>
-                      Học vấn
-                    </p>
+                    <p className='sidebar-section-title'>Học vấn</p>
                     <div className='education-card'>
                       <p className='education-name'>Saigon University</p>
                       <p className='education-degree'>
@@ -361,15 +334,10 @@ export default function App() {
                   </div>
 
                   <div>
-                    <p className='sidebar-section-title'>
-                      Kỹ năng
-                    </p>
+                    <p className='sidebar-section-title'>Kỹ năng</p>
                     <div className='skills-list'>
                       {skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className='skill-chip'
-                        >
+                        <span key={skill} className='skill-chip'>
                           {skill}
                         </span>
                       ))}
@@ -377,15 +345,10 @@ export default function App() {
                   </div>
 
                   <div>
-                    <p className='sidebar-section-title'>
-                      Công cụ
-                    </p>
+                    <p className='sidebar-section-title'>Công cụ</p>
                     <div className='tools-grid'>
                       {tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className='tool-item'
-                        >
+                        <span key={tool} className='tool-item'>
                           {tool}
                         </span>
                       ))}
@@ -405,10 +368,8 @@ export default function App() {
             >
               <div className='cv-header-content'>
                 <div>
-                  <Badge>THỰC TẬP SINH LẬP TRÌNH | WEB</Badge>
-                  <h1 className='cv-name'>
-                    Nguyen Huu Vinh Phat
-                  </h1>
+                  <Badge>THỰC TẬP SINH LẬP TRÌNH</Badge>
+                  <h1 className='cv-name'>Nguyễn Hữu Vĩnh Phát</h1>
                 </div>
               </div>
             </motion.header>
@@ -454,16 +415,10 @@ export default function App() {
                     <div className='project-top-rule' />
                     <div className='project-heading-row'>
                       <div>
-                        <div className='project-team'>
-                          {experience.team}
-                        </div>
-                        <h3 className='project-name'>
-                          {experience.title}
-                        </h3>
+                        <div className='project-team'>{experience.team}</div>
+                        <h3 className='project-name'>{experience.title}</h3>
                       </div>
-                      <span className='project-year'>
-                        {experience.year}
-                      </span>
+                      <span className='project-year'>{experience.year}</span>
                     </div>
                     <ul className='project-points'>
                       {experience.points.map((point) => (
@@ -518,10 +473,7 @@ export default function App() {
                     'Debug & kiểm thử',
                     'Làm việc nhóm',
                   ].map((item) => (
-                    <div
-                      key={item}
-                      className='direction-item'
-                    >
+                    <div key={item} className='direction-item'>
                       {item}
                     </div>
                   ))}
@@ -536,9 +488,7 @@ export default function App() {
               transition={{ duration: 0.6 }}
               className='commitment-panel'
             >
-              <p className='commitment-title'>
-                Cam kết phát triển
-              </p>
+              <p className='commitment-title'>Cam kết phát triển</p>
               <p className='commitment-copy'>
                 Tôi cam kết học hỏi từ các lập trình viên giàu kinh nghiệm, hoàn
                 thành công việc đáng tin cậy và liên tục củng cố nền tảng kỹ
@@ -563,9 +513,7 @@ function ContactItem({
 }) {
   return (
     <div className='contact-item'>
-      <p className='contact-label'>
-        {label}
-      </p>
+      <p className='contact-label'>{label}</p>
       {href ? (
         <a
           className='contact-link'

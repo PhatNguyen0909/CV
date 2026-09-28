@@ -4,12 +4,12 @@
 
 :root {
   color-scheme: light;
-  --cv-page-background: #0f172a;
+  --cv-page-background: #0c1e31;
 }
 
 html.dark {
   color-scheme: dark;
-  --cv-page-background: #020617;
+  --cv-page-background: #102a43;
 }
 
 html {

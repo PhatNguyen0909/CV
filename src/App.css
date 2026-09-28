@@ -1,307 +1,307 @@
-  .cv-page {
-    @apply min-h-[100dvh] bg-[#0f172a] text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 print:min-h-0 print:bg-white print:text-black;
-    background-color: var(--cv-page-background);
-  }
-
-  .cv-backdrop {
-    @apply pointer-events-none fixed inset-0 -z-10 overflow-hidden print:hidden;
-  }
-
-  .cv-glow-sky {
-    @apply absolute -left-12 top-10 h-56 w-56 rounded-full bg-sky-400/25 blur-3xl;
-  }
-
-  .cv-glow-amber {
-    @apply absolute right-0 top-28 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl;
-  }
-
-  .cv-main {
-    @apply relative mx-auto w-full max-w-[440px] px-3 py-4 print:max-w-none print:px-0 print:py-0;
-  }
-
-  .cv-toolbar {
-    @apply mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden;
-  }
-
-  .theme-button {
-    @apply inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300;
-  }
-
-  .icon-size {
-    @apply h-5 w-5;
-  }
-
-  .cv-content-grid {
-    @apply grid gap-4;
-  }
-
-  .cv-sidebar {
-    @apply overflow-hidden rounded-[2rem] border border-white/40 bg-[linear-gradient(180deg,#1c4e6d_0%,#163a57_42%,#0f172a_100%)] text-white shadow-soft dark:border-slate-800 print:rounded-none print:border-0;
-  }
-
-  .cv-sidebar-inner {
-    @apply relative p-5;
-  }
-
-  .cv-sidebar-overlay {
-    @apply absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_38%),linear-gradient(145deg,rgba(56,189,248,0.18),rgba(15,23,42,0.92))] print:hidden;
-  }
-
-  .cv-sidebar-content {
-    @apply relative;
-  }
-
-  .profile-intro {
-    @apply mx-auto flex w-full flex-col items-center text-center;
-  }
-
-  .profile-avatar {
-    @apply relative mb-6 h-36 w-36 overflow-hidden rounded-full border-4 border-white/20 bg-gradient-to-br from-sky-300 via-slate-200 to-slate-500 shadow-soft;
-  }
-
-  .profile-image {
-    @apply absolute inset-0 h-full w-full scale-[1] object-cover object-[50%_18%];
-  }
-
-  .profile-glow {
-    @apply absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.16),transparent_55%)];
-  }
-
-  .profile-name {
-    @apply text-3xl font-black uppercase tracking-[0.08em] text-white;
-  }
-
-  .profile-role {
-    @apply pdf-fix-pill mt-2 inline-flex min-h-9 items-center justify-center whitespace-nowrap rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-center text-[11px] leading-tight font-bold uppercase tracking-[0.14em] text-sky-100;
-  }
-
-  .profile-description {
-    @apply mt-4 max-w-xs text-sm leading-6 text-slate-200/90;
-  }
-
-  .highlights-grid {
-    @apply mt-8 grid grid-cols-2 gap-3;
-  }
-
-  .highlight-item {
-    @apply w-full rounded-2xl border border-white/10 p-4 backdrop-blur-sm;
-    background-color: rgb(255 255 255 / 0.08);
-  }
-
-  .highlight-value {
-    @apply text-2xl font-black text-white;
-  }
-
-  .highlight-label {
-    @apply mt-1 text-sm leading-5 text-slate-200;
-  }
-
-  .sidebar-sections {
-    @apply mt-8 space-y-8;
-  }
-
-  .sidebar-section-title {
-    @apply mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200;
-  }
-
-  .contact-list {
-    @apply space-y-4 text-sm text-slate-100/95;
-  }
-
-  .education-card {
-    @apply rounded-2xl border border-white/10 p-4 text-sm text-slate-100 backdrop-blur-sm;
-    background-color: rgb(255 255 255 / 0.08);
-  }
-
-  .education-name {
-    @apply font-bold;
-  }
-
-  .education-degree {
-    @apply mt-1 text-slate-200;
-  }
-
-  .education-period {
-    @apply mt-2 text-sky-200;
-  }
-
-  .skills-list {
-    @apply flex flex-wrap gap-2;
-  }
-
-  .skill-chip {
-    @apply rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-2 text-[11px] font-semibold text-slate-100;
-  }
-
-  .tools-grid {
-    @apply grid grid-cols-2 gap-2 text-xs font-semibold text-slate-100;
-  }
-
-  .tool-item {
-    @apply rounded-2xl border border-white/10 px-3 py-2 text-center backdrop-blur-sm;
-    background-color: rgb(255 255 255 / 0.08);
-  }
-
-  .cv-main-panel {
-    @apply space-y-6 rounded-[2rem] border border-white/60 bg-white/90 p-5 shadow-soft backdrop-blur dark:border-slate-800 dark:bg-slate-900/85 print:rounded-none print:border-0 print:bg-white print:p-0;
-  }
-
-  .cv-header {
-    @apply space-y-4;
-  }
-
-  .cv-header-content {
-    @apply flex flex-wrap items-start justify-between gap-4;
-  }
-
-  .badge {
-    @apply pdf-fix-pill inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-center text-[11px] leading-tight font-semibold tracking-[0.14em] text-sky-700 dark:text-sky-300;
-  }
-
-  .cv-name {
-    @apply mt-4 text-2xl font-black uppercase tracking-[0.06em] sm:text-5xl;
-  }
-
-  .section-title {
-    @apply flex items-center gap-3;
-  }
-
-  .section-title-accent {
-    @apply h-8 w-2 rounded-full bg-sky-500;
-  }
-
-  .section-title-text {
-    @apply pdf-fix-title text-lg font-extrabold uppercase tracking-[0.16em] text-slate-900 dark:text-white;
-  }
-
-  .objective-panel {
-    @apply space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50;
-  }
-
-  .objective-content {
-    @apply space-y-4 text-[15px] leading-8 text-slate-700 dark:text-slate-200;
-  }
-
-  .section-stack {
-    @apply space-y-4;
-  }
-
-  .project-list {
-    @apply space-y-4;
-  }
-
-  .project-card {
-    @apply relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft dark:border-slate-800 dark:bg-slate-950/60 print:shadow-none;
-  }
-
-  .project-top-rule {
-    @apply absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-amber-300;
-  }
-
-  .project-heading-row {
-    @apply flex flex-wrap items-start justify-between gap-3;
-  }
-
-  .project-team {
-    @apply pdf-fix-pill inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-full border border-sky-500/15 bg-sky-500/10 px-3 py-1 text-[11px] leading-tight font-bold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300;
-  }
-
-  .project-name {
-    @apply mt-3 text-lg font-extrabold text-slate-900 dark:text-white;
-  }
-
-  .project-year {
-    @apply rounded-full bg-slate-100 px-3 py-2 text-sm font-bold text-slate-600 dark:bg-slate-900 dark:text-slate-300;
-  }
-
-  .project-points {
-    @apply mt-4 space-y-3 text-[15px] leading-7 text-slate-700 dark:text-slate-300;
-  }
-
-  .project-point {
-    @apply flex gap-3;
-  }
-
-  .project-bullet {
-    @apply mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-sky-500;
-  }
-
-  .feature-grid {
-    @apply grid gap-4;
-  }
-
-  .feature-panel {
-    @apply rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50;
-  }
-
-  .feature-copy {
-    @apply mt-4 space-y-3 text-[15px] leading-7 text-slate-700 dark:text-slate-300;
-  }
-
-  .direction-grid {
-    @apply mt-4 grid gap-3;
-  }
-
-  .direction-item {
-    @apply flex min-h-14 items-center justify-center rounded-2xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold tracking-[-0.01em] whitespace-nowrap text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200;
-  }
-
-  .commitment-panel {
-    @apply rounded-3xl border border-dashed border-sky-500/30 bg-sky-500/5 p-5 text-sm leading-7 text-slate-700 dark:text-slate-300 print:border-slate-300 print:bg-white;
-  }
-
-  .commitment-title {
-    @apply font-semibold text-slate-900 dark:text-white;
-  }
-
-  .commitment-copy {
-    @apply mt-2;
-  }
-
-  .contact-item {
-    @apply rounded-2xl border border-white/10 p-4 backdrop-blur-sm;
-    background-color: rgb(255 255 255 / 0.08);
-  }
-
-  .contact-label {
-    @apply text-xs font-semibold uppercase tracking-[0.24em] text-sky-200;
-  }
-
-  .contact-value {
-    @apply mt-2 break-words font-semibold text-white;
-  }
-
-  .contact-link {
-    @apply mt-2 block break-words font-semibold text-white transition hover:text-sky-200;
-  }
-
-  .pdf-fix-pill {
-    @apply inline-flex items-center justify-center whitespace-nowrap;
-    line-height: 1.2;
-  }
-
-  .pdf-fix-title {
-    line-height: 1.2;
-  }
-
-  html.pdf-export-mode #cv-content,
-  html.pdf-export-mode #cv-content * {
-    animation: none !important;
-    transition: none !important;
-    text-rendering: geometricPrecision !important;
-  }
-
-  html.pdf-export-mode #cv-content .pdf-fix-pill {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    line-height: 1.2 !important;
-    white-space: nowrap !important;
-  }
-
-  html.pdf-export-mode #cv-content .pdf-fix-title {
-    line-height: 1.2 !important;
-  }
+.cv-page {
+  @apply min-h-[100dvh] bg-[#0f172a] text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 print:min-h-0 print:bg-white print:text-black;
+  background-color: var(--cv-page-background);
+}
+
+.cv-backdrop {
+  @apply pointer-events-none fixed inset-0 -z-10 overflow-hidden print:hidden;
+}
+
+.cv-glow-sky {
+  @apply absolute -left-12 top-10 h-56 w-56 rounded-full bg-sky-400/25 blur-3xl;
+}
+
+.cv-glow-amber {
+  @apply absolute right-0 top-28 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl;
+}
+
+.cv-main {
+  @apply relative mx-auto w-full max-w-[440px] px-3 py-4 print:max-w-none print:px-0 print:py-0;
+}
+
+.cv-toolbar {
+  @apply mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden;
+}
+
+.theme-button {
+  @apply inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300;
+}
+
+.icon-size {
+  @apply h-5 w-5;
+}
+
+.cv-content-grid {
+  @apply grid gap-4;
+}
+
+.cv-sidebar {
+  @apply overflow-hidden rounded-[2rem] border border-white/40 bg-[linear-gradient(180deg,#1c4e6d_0%,#163a57_42%,#0f172a_100%)] text-white shadow-soft dark:border-slate-800 print:rounded-none print:border-0;
+}
+
+.cv-sidebar-inner {
+  @apply relative p-5;
+}
+
+.cv-sidebar-overlay {
+  @apply absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_38%),linear-gradient(145deg,rgba(56,189,248,0.18),rgba(15,23,42,0.92))] print:hidden;
+}
+
+.cv-sidebar-content {
+  @apply relative;
+}
+
+.profile-intro {
+  @apply mx-auto flex w-full flex-col items-center text-center;
+}
+
+.profile-avatar {
+  @apply relative mb-6 h-36 w-36 overflow-hidden rounded-full border-4 border-white/20 bg-gradient-to-br from-sky-300 via-slate-200 to-slate-500 shadow-soft;
+}
+
+.profile-image {
+  @apply absolute inset-0 h-full w-full scale-[1] object-cover object-[50%_18%];
+}
+
+.profile-glow {
+  @apply absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.16),transparent_55%)];
+}
+
+.profile-name {
+  @apply text-3xl font-black uppercase tracking-[0.08em] text-white;
+}
+
+.profile-role {
+  @apply pdf-fix-pill mt-2 inline-flex min-h-9 items-center justify-center whitespace-nowrap rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-center text-[11px] leading-tight font-bold uppercase tracking-[0.14em] text-sky-100;
+}
+
+.profile-description {
+  @apply mt-4 max-w-xs text-sm leading-6 text-slate-200/90;
+}
+
+.highlights-grid {
+  @apply mt-8 grid grid-cols-2 gap-3;
+}
+
+.highlight-item {
+  @apply w-full rounded-2xl border border-white/10 p-4 backdrop-blur-sm;
+  background-color: rgb(255 255 255 / 0.08);
+}
+
+.highlight-value {
+  @apply text-2xl font-black text-white;
+}
+
+.highlight-label {
+  @apply mt-1 text-sm leading-5 text-slate-200;
+}
+
+.sidebar-sections {
+  @apply mt-8 space-y-8;
+}
+
+.sidebar-section-title {
+  @apply mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200;
+}
+
+.contact-list {
+  @apply space-y-4 text-sm text-slate-100/95;
+}
+
+.education-card {
+  @apply rounded-2xl border border-white/10 p-4 text-sm text-slate-100 backdrop-blur-sm;
+  background-color: rgb(255 255 255 / 0.08);
+}
+
+.education-name {
+  @apply font-bold;
+}
+
+.education-degree {
+  @apply mt-1 text-slate-200;
+}
+
+.education-period {
+  @apply mt-2 text-sky-200;
+}
+
+.skills-list {
+  @apply flex flex-wrap gap-2;
+}
+
+.skill-chip {
+  @apply rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-2 text-[11px] font-semibold text-slate-100;
+}
+
+.tools-grid {
+  @apply grid grid-cols-2 gap-2 text-xs font-semibold text-slate-100;
+}
+
+.tool-item {
+  @apply rounded-2xl border border-white/10 px-3 py-2 text-center backdrop-blur-sm;
+  background-color: rgb(255 255 255 / 0.08);
+}
+
+.cv-main-panel {
+  @apply space-y-6 rounded-[2rem] border border-white/60 bg-white/90 p-5 shadow-soft backdrop-blur dark:border-slate-800 dark:bg-slate-900/85 print:rounded-none print:border-0 print:bg-white print:p-0;
+}
+
+.cv-header {
+  @apply space-y-4;
+}
+
+.cv-header-content {
+  @apply flex flex-wrap items-start justify-between gap-4;
+}
+
+.badge {
+  @apply pdf-fix-pill inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-center text-[11px] leading-tight font-semibold tracking-[0.14em] text-sky-700 dark:text-sky-300;
+}
+
+.cv-name {
+  @apply mt-4 text-2xl font-black uppercase tracking-[0.06em] sm:text-5xl;
+}
+
+.section-title {
+  @apply flex items-center gap-3;
+}
+
+.section-title-accent {
+  @apply h-8 w-2 rounded-full bg-sky-500;
+}
+
+.section-title-text {
+  @apply pdf-fix-title text-lg font-extrabold uppercase tracking-[0.16em] text-slate-900 dark:text-white;
+}
+
+.objective-panel {
+  @apply space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50;
+}
+
+.objective-content {
+  @apply space-y-4 text-[15px] leading-8 text-slate-700 dark:text-slate-200;
+}
+
+.section-stack {
+  @apply space-y-4;
+}
+
+.project-list {
+  @apply space-y-4;
+}
+
+.project-card {
+  @apply relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft dark:border-slate-800 dark:bg-slate-950/60 print:shadow-none;
+}
+
+.project-top-rule {
+  @apply absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-amber-300;
+}
+
+.project-heading-row {
+  @apply flex flex-wrap items-start justify-between gap-3;
+}
+
+.project-team {
+  @apply pdf-fix-pill inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-full border border-sky-500/15 bg-sky-500/10 px-3 py-1 text-[11px] leading-tight font-bold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300;
+}
+
+.project-name {
+  @apply mt-3 text-lg font-extrabold text-slate-900 dark:text-white;
+}
+
+.project-year {
+  @apply rounded-full bg-slate-100 px-3 py-2 text-sm font-bold text-slate-600 dark:bg-slate-900 dark:text-slate-300;
+}
+
+.project-points {
+  @apply mt-4 space-y-3 text-[15px] leading-7 text-slate-700 dark:text-slate-300;
+}
+
+.project-point {
+  @apply flex gap-3;
+}
+
+.project-bullet {
+  @apply mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-sky-500;
+}
+
+.feature-grid {
+  @apply grid gap-4;
+}
+
+.feature-panel {
+  @apply rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50;
+}
+
+.feature-copy {
+  @apply mt-4 space-y-3 text-[15px] leading-7 text-slate-700 dark:text-slate-300;
+}
+
+.direction-grid {
+  @apply mt-4 grid gap-3;
+}
+
+.direction-item {
+  @apply flex min-h-14 items-center justify-center rounded-2xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold tracking-[-0.01em] whitespace-nowrap text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200;
+}
+
+.commitment-panel {
+  @apply rounded-3xl border border-dashed border-sky-500/30 bg-sky-500/5 p-5 text-sm leading-7 text-slate-700 dark:text-slate-300 print:border-slate-300 print:bg-white;
+}
+
+.commitment-title {
+  @apply font-semibold text-slate-900 dark:text-white;
+}
+
+.commitment-copy {
+  @apply mt-2;
+}
+
+.contact-item {
+  @apply rounded-2xl border border-white/10 p-4 backdrop-blur-sm;
+  background-color: rgb(255 255 255 / 0.08);
+}
+
+.contact-label {
+  @apply text-xs font-semibold uppercase tracking-[0.24em] text-sky-200;
+}
+
+.contact-value {
+  @apply mt-2 break-words font-semibold text-white;
+}
+
+.contact-link {
+  @apply mt-2 block break-words font-semibold text-white transition hover:text-sky-200;
+}
+
+.pdf-fix-pill {
+  @apply inline-flex items-center justify-center whitespace-nowrap;
+  line-height: 1.2;
+}
+
+.pdf-fix-title {
+  line-height: 1.2;
+}
+
+html.pdf-export-mode #cv-content,
+html.pdf-export-mode #cv-content * {
+  animation: none !important;
+  transition: none !important;
+  text-rendering: geometricPrecision !important;
+}
+
+html.pdf-export-mode #cv-content .pdf-fix-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+html.pdf-export-mode #cv-content .pdf-fix-title {
+  line-height: 1.2 !important;
+}
 
 @screen sm {
   .cv-glow-sky {
