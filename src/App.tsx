@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import profileImage from '../Image/NguyenHuuVinhPhat.jpg';
+import './App.css';
 
 type Experience = {
   year: string;
@@ -86,7 +87,7 @@ function SunIcon() {
     <svg
       viewBox='0 0 24 24'
       fill='none'
-      className='h-5 w-5'
+      className='icon-size'
       stroke='currentColor'
       strokeWidth='1.8'
     >
@@ -101,7 +102,7 @@ function MoonIcon() {
     <svg
       viewBox='0 0 24 24'
       fill='none'
-      className='h-5 w-5'
+      className='icon-size'
       stroke='currentColor'
       strokeWidth='1.8'
     >
@@ -115,7 +116,7 @@ function DownloadIcon() {
     <svg
       viewBox='0 0 24 24'
       fill='none'
-      className='h-5 w-5'
+      className='icon-size'
       stroke='currentColor'
       strokeWidth='1.8'
     >
@@ -127,7 +128,7 @@ function DownloadIcon() {
 
 function Badge({ children }: { children: string }) {
   return (
-    <span className='pdf-fix-pill inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-center text-[11px] leading-tight font-semibold tracking-[0.14em] text-sky-700 dark:text-sky-300'>
+    <span className='badge'>
       {children}
     </span>
   );
@@ -135,9 +136,9 @@ function Badge({ children }: { children: string }) {
 
 function SectionTitle({ children }: { children: string }) {
   return (
-    <div className='flex items-center gap-3'>
-      <span className='h-8 w-2 rounded-full bg-sky-500' />
-      <h2 className='pdf-fix-title text-lg font-extrabold uppercase tracking-[0.16em] text-slate-900 dark:text-white'>
+    <div className='section-title'>
+      <span className='section-title-accent' />
+      <h2 className='section-title-text'>
         {children}
       </h2>
     </div>
@@ -202,30 +203,6 @@ export default function App() {
         height: sourceHeight,
         windowWidth: sourceWidth,
         windowHeight: sourceHeight,
-        onclone: (clonedDocument) => {
-          const style = clonedDocument.createElement('style');
-          style.textContent = `
-            #cv-content, #cv-content * {
-              animation: none !important;
-              transition: none !important;
-              text-rendering: geometricPrecision !important;
-            }
-
-            #cv-content .pdf-fix-pill {
-              display: inline-flex !important;
-              align-items: center !important;
-              justify-content: center !important;
-              line-height: 1.2 !important;
-              white-space: nowrap !important;
-            }
-
-            #cv-content .pdf-fix-title {
-              line-height: 1.2 !important;
-            }
-          `;
-
-          clonedDocument.head.appendChild(style);
-        },
       });
 
       const pdf = new JsPDF({
@@ -269,19 +246,22 @@ export default function App() {
   };
 
   return (
-    <div className='flex min-h-[100dvh] justify-center overflow-x-hidden bg-[#1d3557] text-slate-900 transition-colors duration-300 dark:bg-[#1d3557] dark:text-slate-100 print:min-h-0 print:bg-white print:text-black'>
-      <div className='pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#1d3557] print:hidden' />
+    <div className='cv-page'>
+      <div className='cv-backdrop'>
+        <div className='cv-glow-sky' />
+        <div className='cv-glow-amber' />
+      </div>
 
       <main
         id='cv'
-        className='relative w-[calc(100vw-18px)] max-w-[420px] px-0 py-4 sm:w-full sm:max-w-5xl sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8 print:max-w-none print:px-0 print:py-0'
+        className='cv-main'
       >
-        <div className='mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden'>
+        <div className='cv-toolbar'>
           <div className='flex items-center gap-3'>
             <button
               type='button'
               onClick={toggleTheme}
-              className='inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300'
+              className='theme-button'
             >
               {darkMode ? <SunIcon /> : <MoonIcon />}
               {darkMode ? 'Chế độ sáng' : 'Chế độ tối'}
@@ -299,60 +279,60 @@ export default function App() {
 
         <div
           id='cv-content'
-          className='grid w-full min-w-0 gap-4 sm:gap-6 lg:grid-cols-[320px_minmax(0,1fr)] print:grid print:grid-cols-[280px_minmax(0,1fr)] print:gap-4'
+          className='cv-content-grid'
         >
-          <aside className='print-avoid-break w-full min-w-0 overflow-hidden rounded-[2rem] border border-white/40 bg-[#2b4c6f] text-white shadow-soft dark:border-slate-800 print:rounded-none print:border-0'>
-            <div className='relative bg-[#2b4c6f] p-5 sm:p-8 lg:min-h-[1080px] print:min-h-0 print:bg-white print:p-0'>
-              <div className='absolute inset-0 bg-[#2b4c6f] print:hidden' />
-              <div className='relative'>
+          <aside className='cv-sidebar'>
+            <div className='cv-sidebar-inner'>
+              <div className='cv-sidebar-overlay' />
+              <div className='cv-sidebar-content'>
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
-                  className='mx-auto flex w-full flex-col items-center text-center'
+                  className='profile-intro'
                 >
-                  <div className='relative mb-6 h-36 w-36 overflow-hidden rounded-full border-4 border-white/20 bg-gradient-to-br from-sky-300 via-slate-200 to-slate-500 shadow-soft'>
+                  <div className='profile-avatar'>
                     <img
                       src={profileImage}
                       alt='Nguyen Huu Vinh Phat'
-                      className='absolute inset-0 h-full w-full scale-[1] object-cover object-[50%_18%]'
+                      className='profile-image'
                     />
-                    <div className='absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.16),transparent_55%)]' />
+                    <div className='profile-glow' />
                   </div>
-                  <h1 className='text-3xl font-black uppercase tracking-[0.08em] text-white'>
+                  <h1 className='profile-name'>
                     Vinh Phat
                   </h1>
-                  <p className='pdf-fix-pill mt-2 inline-flex min-h-9 items-center justify-center whitespace-nowrap rounded-full border border-sky-300/25 bg-sky-400/15 px-4 py-1 text-center text-[11px] leading-tight font-bold uppercase tracking-[0.14em] text-sky-100'>
+                  <p className='profile-role'>
                     THỰC TẬP SINH LẬP TRÌNH
                   </p>
-                  <p className='mt-4 max-w-xs text-sm leading-6 text-slate-200/90'>
+                  <p className='profile-description'>
                     Sinh viên Công nghệ Thông tin định hướng xây dựng các ứng
                     dụng web thực tế, dễ bảo trì và thân thiện với người dùng.
                   </p>
                 </motion.div>
 
-                <div className='mt-8 grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 print:mx-auto print:max-w-[240px] print:grid-cols-2 print:justify-items-center'>
+                <div className='highlights-grid'>
                   {highlights.map((item) => (
                     <div
                       key={item.value}
-                      className='print-avoid-break w-full rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur-sm'
+                      className='highlight-item'
                     >
-                      <p className='text-2xl font-black text-white'>
+                      <p className='highlight-value'>
                         {item.label}
                       </p>
-                      <p className='mt-1 text-sm leading-5 text-slate-200'>
+                      <p className='highlight-label'>
                         {item.value}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                <section className='mt-8 space-y-8'>
+                <section className='sidebar-sections'>
                   <div>
-                    <p className='mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200'>
+                    <p className='sidebar-section-title'>
                       Liên hệ
                     </p>
-                    <div className='space-y-4 text-sm text-slate-100/95'>
+                    <div className='contact-list'>
                       <ContactItem label='Điện thoại' value='0376122821' />
                       <ContactItem
                         label='Email'
@@ -368,27 +348,27 @@ export default function App() {
                   </div>
 
                   <div>
-                    <p className='mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200'>
+                    <p className='sidebar-section-title'>
                       Học vấn
                     </p>
-                    <div className='rounded-2xl border border-white/10 bg-white/8 p-4 text-sm text-slate-100 backdrop-blur-sm'>
-                      <p className='font-bold'>Saigon University</p>
-                      <p className='mt-1 text-slate-200'>
+                    <div className='education-card'>
+                      <p className='education-name'>Saigon University</p>
+                      <p className='education-degree'>
                         Cử nhân Công nghệ Thông tin
                       </p>
-                      <p className='mt-2 text-sky-200'>2022 - 2026</p>
+                      <p className='education-period'>2022 - 2026</p>
                     </div>
                   </div>
 
                   <div>
-                    <p className='mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200'>
+                    <p className='sidebar-section-title'>
                       Kỹ năng
                     </p>
-                    <div className='flex flex-wrap gap-2'>
+                    <div className='skills-list'>
                       {skills.map((skill) => (
                         <span
                           key={skill}
-                          className='rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-2 text-[11px] font-semibold text-slate-100 sm:text-xs'
+                          className='skill-chip'
                         >
                           {skill}
                         </span>
@@ -397,14 +377,14 @@ export default function App() {
                   </div>
 
                   <div>
-                    <p className='mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-sky-200'>
+                    <p className='sidebar-section-title'>
                       Công cụ
                     </p>
-                    <div className='grid grid-cols-2 gap-2 text-xs font-semibold text-slate-100'>
+                    <div className='tools-grid'>
                       {tools.map((tool) => (
                         <span
                           key={tool}
-                          className='rounded-2xl border border-white/10 bg-white/8 px-3 py-2 text-center backdrop-blur-sm'
+                          className='tool-item'
                         >
                           {tool}
                         </span>
@@ -416,17 +396,17 @@ export default function App() {
             </div>
           </aside>
 
-          <section className='print-avoid-break space-y-6 rounded-[2rem] border border-white/60 bg-white/90 p-5 shadow-soft backdrop-blur dark:border-slate-800 dark:bg-slate-900/85 sm:p-8 print:rounded-none print:border-0 print:bg-white print:p-0'>
+          <section className='cv-main-panel'>
             <motion.header
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
-              className='space-y-4'
+              className='cv-header'
             >
-              <div className='flex flex-wrap items-start justify-between gap-4'>
+              <div className='cv-header-content'>
                 <div>
                   <Badge>THỰC TẬP SINH LẬP TRÌNH | WEB</Badge>
-                  <h1 className='mt-4 text-2xl font-black uppercase tracking-[0.06em] sm:text-5xl'>
+                  <h1 className='cv-name'>
                     Nguyen Huu Vinh Phat
                   </h1>
                 </div>
@@ -438,10 +418,10 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.55 }}
-              className='print-avoid-break space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50'
+              className='objective-panel'
             >
               <SectionTitle>Mục tiêu nghề nghiệp</SectionTitle>
-              <div className='space-y-4 text-[15px] leading-8 text-slate-700 dark:text-slate-200'>
+              <div className='objective-content'>
                 <p>
                   Tôi ứng tuyển vị trí Thực tập sinh Lập trình để phát triển
                   kinh nghiệm phần mềm trong môi trường làm việc chuyên nghiệp.
@@ -459,9 +439,9 @@ export default function App() {
               </div>
             </motion.section>
 
-            <section className='space-y-4'>
+            <section className='section-stack'>
               <SectionTitle>Dự án lập trình web</SectionTitle>
-              <div className='space-y-4'>
+              <div className='project-list'>
                 {experiences.map((experience, index) => (
                   <motion.article
                     key={`${experience.title}-${experience.year}`}
@@ -469,26 +449,26 @@ export default function App() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.45, delay: index * 0.05 }}
-                    className='print-avoid-break group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft dark:border-slate-800 dark:bg-slate-950/60 print:shadow-none'
+                    className='project-card'
                   >
-                    <div className='absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-amber-300' />
-                    <div className='flex flex-wrap items-start justify-between gap-3'>
+                    <div className='project-top-rule' />
+                    <div className='project-heading-row'>
                       <div>
-                        <div className='pdf-fix-pill inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-full border border-sky-500/15 bg-sky-500/10 px-3 py-1 text-[11px] leading-tight font-bold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300'>
+                        <div className='project-team'>
                           {experience.team}
                         </div>
-                        <h3 className='mt-3 text-lg font-extrabold text-slate-900 dark:text-white'>
+                        <h3 className='project-name'>
                           {experience.title}
                         </h3>
                       </div>
-                      <span className='rounded-full bg-slate-100 px-3 py-2 text-sm font-bold text-slate-600 dark:bg-slate-900 dark:text-slate-300'>
+                      <span className='project-year'>
                         {experience.year}
                       </span>
                     </div>
-                    <ul className='mt-4 space-y-3 text-[15px] leading-7 text-slate-700 dark:text-slate-300'>
+                    <ul className='project-points'>
                       {experience.points.map((point) => (
-                        <li key={point} className='flex gap-3'>
-                          <span className='mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-sky-500' />
+                        <li key={point} className='project-point'>
+                          <span className='project-bullet' />
                           <span>{point}</span>
                         </li>
                       ))}
@@ -498,16 +478,16 @@ export default function App() {
               </div>
             </section>
 
-            <section className='grid gap-4 lg:grid-cols-2'>
+            <section className='feature-grid'>
               <motion.div
                 initial={{ opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className='print-avoid-break rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50'
+                className='feature-panel'
               >
                 <SectionTitle>Thế mạnh kỹ thuật</SectionTitle>
-                <div className='mt-4 space-y-3 text-[15px] leading-7 text-slate-700 dark:text-slate-300'>
+                <div className='feature-copy'>
                   <p>
                     Xây dựng giao diện rõ ràng, responsive và chú trọng khả năng
                     sử dụng trên nhiều kích thước màn hình.
@@ -528,10 +508,10 @@ export default function App() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className='print-avoid-break rounded-3xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/50'
+                className='feature-panel'
               >
                 <SectionTitle>Định hướng phát triển</SectionTitle>
-                <div className='mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2'>
+                <div className='direction-grid'>
                   {[
                     'Lập trình frontend',
                     'Triển khai giao diện',
@@ -540,7 +520,7 @@ export default function App() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className='flex min-h-14 items-center justify-center rounded-2xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold tracking-[-0.01em] whitespace-nowrap text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-4 '
+                      className='direction-item'
                     >
                       {item}
                     </div>
@@ -554,12 +534,12 @@ export default function App() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className='print-avoid-break rounded-3xl border border-dashed border-sky-500/30 bg-sky-500/5 p-5 text-sm leading-7 text-slate-700 dark:text-slate-300 print:border-slate-300 print:bg-white'
+              className='commitment-panel'
             >
-              <p className='font-semibold text-slate-900 dark:text-white'>
+              <p className='commitment-title'>
                 Cam kết phát triển
               </p>
-              <p className='mt-2'>
+              <p className='commitment-copy'>
                 Tôi cam kết học hỏi từ các lập trình viên giàu kinh nghiệm, hoàn
                 thành công việc đáng tin cậy và liên tục củng cố nền tảng kỹ
                 thuật thông qua thực hành và tiếp nhận phản hồi.
@@ -582,13 +562,13 @@ function ContactItem({
   href?: string;
 }) {
   return (
-    <div className='print-avoid-break rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur-sm'>
-      <p className='text-xs font-semibold uppercase tracking-[0.24em] text-sky-200'>
+    <div className='contact-item'>
+      <p className='contact-label'>
         {label}
       </p>
       {href ? (
         <a
-          className='mt-2 block break-words font-semibold text-white transition hover:text-sky-200'
+          className='contact-link'
           href={href}
           target='_blank'
           rel='noreferrer'
@@ -596,7 +576,7 @@ function ContactItem({
           {value}
         </a>
       ) : (
-        <p className='mt-2 break-words font-semibold text-white'>{value}</p>
+        <p className='contact-value'>{value}</p>
       )}
     </div>
   );
