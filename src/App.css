@@ -401,11 +401,12 @@
     display: grid;
     grid-template-columns: minmax(180px, 27%) minmax(0, 1fr);
     gap: 7px;
-    align-items: start;
+    min-height: 1000px;
+    align-items: stretch;
   }
 
-  .cv-sidebar {
-    height: fit-content;
+  .cv-sidebar-content {
+    display: block;
   }
 
   .cv-sidebar,
@@ -422,85 +423,76 @@
 
   .cv-sidebar-inner {
     min-height: 0;
+    height: 100%;
     padding: 8px;
   }
 
   .profile-intro {
-    display: grid;
-    grid-template-columns: 54px minmax(0, 1fr);
-    column-gap: 8px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: left;
+    text-align: center;
   }
 
   .profile-avatar {
-    grid-row: 1 / 4;
-    width: 54px;
-    height: 54px;
-    margin: 0;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 8px;
   }
 
   .profile-name {
-    text-align: left;
-    font-size: 15px;
+    text-align: center;
+    font-size: 20px;
   }
 
   .profile-role {
-    justify-self: start;
     min-height: 20px;
-    margin-top: 2px;
+    margin-top: 5px;
     padding: 3px 6px;
-    font-size: 6px;
+    font-size: 7px;
   }
 
   .profile-description {
-    grid-column: 2;
     max-width: none;
-    margin-top: 2px;
-    font-size: 7px;
-    line-height: 1.25;
+    margin-top: 7px;
+    font-size: 9px;
+    line-height: 1.4;
   }
 
   .highlights-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px;
-    margin-top: 8px;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 10px;
   }
 
   .highlight-item {
-    padding: 6px;
+    padding: 8px;
   }
 
   .highlight-value {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .highlight-label {
     margin-top: 2px;
-    font-size: 8px;
+    font-size: 9px;
     line-height: 1.25;
   }
 
   .sidebar-sections {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 5px;
-    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
   }
 
-  .sidebar-sections > :first-child {
-    grid-column: 1 / -1;
-  }
-
-  .sidebar-sections > :not([hidden]) ~ :not([hidden]),
-  .contact-list > :not([hidden]) ~ :not([hidden]),
   .project-list > :not([hidden]) ~ :not([hidden]),
   .direction-grid > :not([hidden]) ~ :not([hidden]) {
     margin-top: 0;
   }
 
   .cv-main-panel > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 6px;
+    margin-top: 0;
   }
 
   .section-stack > :not([hidden]) ~ :not([hidden]) {
@@ -512,20 +504,20 @@
   }
 
   .sidebar-section-title {
-    margin-bottom: 4px;
-    font-size: 7px;
+    margin-bottom: 6px;
+    font-size: 8px;
     letter-spacing: 0.14em;
   }
 
   .contact-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 
   .contact-item,
   .education-card {
-    padding: 5px;
+    padding: 7px;
   }
 
   .contact-label {
@@ -538,23 +530,27 @@
   .education-name,
   .education-degree,
   .education-period {
-    margin-top: 2px;
+    margin-top: 3px;
     font-size: 8px;
     line-height: 1.25;
   }
 
   .skills-list,
   .tools-grid {
-    gap: 3px;
+    gap: 4px;
   }
 
   .skill-chip,
   .tool-item {
-    padding: 4px 5px;
+    padding: 5px 6px;
     font-size: 7px;
   }
 
   .cv-main-panel {
+    display: flex;
+    min-height: 1000px;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 9px;
     border-radius: 20px;
     gap: 0;
@@ -572,7 +568,7 @@
 
   .cv-name {
     margin-top: 4px;
-    font-size: 21px;
+    font-size: 24px;
   }
 
   .objective-panel,
@@ -591,15 +587,15 @@
   }
 
   .section-title-text {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.1em;
   }
 
   .objective-content,
   .feature-copy {
     margin-top: 4px;
-    font-size: 8px;
-    line-height: 1.3;
+    font-size: 10px;
+    line-height: 1.4;
   }
 
   .objective-content > :not([hidden]) ~ :not([hidden]),
@@ -629,25 +625,25 @@
   .project-team {
     min-height: 18px;
     padding: 3px 5px;
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 0.07em;
   }
 
   .project-name {
     margin-top: 3px;
-    font-size: 9px;
+    font-size: 10px;
     line-height: 1.25;
   }
 
   .project-year {
     padding: 3px 5px;
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .project-points {
     margin-top: 3px;
-    font-size: 7px;
-    line-height: 1.2;
+    font-size: 9px;
+    line-height: 1.35;
   }
 
   .project-point {
@@ -661,11 +657,12 @@
   }
 
   .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 5px;
   }
 
   .feature-copy {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .direction-grid {
@@ -677,16 +674,16 @@
   .direction-item {
     min-height: 0;
     padding: 5px;
-    font-size: 7px;
-    line-height: 1.25;
+    font-size: 9px;
+    line-height: 1.3;
     white-space: normal;
   }
 
   .commitment-panel {
     background-color: rgb(14 165 233 / 0.08) !important;
     color: #cbd5e1 !important;
-    font-size: 7px;
-    line-height: 1.25;
+    font-size: 9px;
+    line-height: 1.4;
   }
 
   .commitment-title {
