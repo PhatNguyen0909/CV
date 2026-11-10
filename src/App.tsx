@@ -104,21 +104,6 @@ function MoonIcon() {
   );
 }
 
-function DownloadIcon() {
-  return (
-    <svg
-      viewBox='0 0 24 24'
-      fill='none'
-      className='icon-size'
-      stroke='currentColor'
-      strokeWidth='1.8'
-    >
-      <path d='M12 3v10m0 0 4-4m-4 4-4-4' />
-      <path d='M5 17.5V19a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1.5' />
-    </svg>
-  );
-}
-
 function Badge({ children }: { children: string }) {
   return <span className='badge'>{children}</span>;
 }
@@ -153,10 +138,6 @@ export default function App() {
     window.localStorage.setItem('theme', nextTheme ? 'dark' : 'light');
   };
 
-  const exportPDF = () => {
-    window.print();
-  };
-
   return (
     <div className='cv-page'>
       <div className='cv-backdrop'>
@@ -174,14 +155,6 @@ export default function App() {
             >
               {darkMode ? <SunIcon /> : <MoonIcon />}
               {darkMode ? 'Chế độ sáng' : 'Chế độ tối'}
-            </button>
-            <button
-              type='button'
-              onClick={exportPDF}
-              className='inline-flex items-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-sky-700'
-            >
-              <DownloadIcon />
-              In / lưu PDF
             </button>
           </div>
         </div>
