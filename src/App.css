@@ -544,11 +544,11 @@
     flex-direction: column;
     padding: 10px;
     border-radius: 20px;
-    gap: 10px;
+    gap: 12px;
   }
 
   .cv-header {
-    gap: 6px;
+    gap: 8px;
   }
 
   .badge {
@@ -558,8 +558,9 @@
   }
 
   .cv-name {
-    margin-top: 4px;
+    margin-top: 8px;
     font-size: 24px;
+    line-height: 1.2;
   }
 
   .objective-panel,
@@ -596,17 +597,17 @@
   }
 
   .section-stack {
-    gap: 9px;
+    gap: 10px;
   }
 
   .project-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
   }
 
   .project-card {
-    padding: 9px 10px;
+    padding: 10px 11px;
     border-radius: 14px;
   }
 
@@ -635,7 +636,7 @@
   .project-points {
     margin-top: 6px;
     font-size: 9px;
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
   .project-point {
