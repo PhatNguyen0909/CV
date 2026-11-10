@@ -379,123 +379,158 @@
 }
 
 @media print {
-  .objective-panel,
-  .project-card,
-  .feature-panel,
-  .commitment-panel,
-  .project-point {
-    break-inside: avoid;
-    page-break-inside: avoid;
+  .cv-toolbar,
+  .cv-backdrop {
+    display: none !important;
+  }
+
+  .cv-page {
+    min-height: 0;
+    background: #0f172a !important;
+    color: #f8fafc !important;
+  }
+
+  .cv-main {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 8px;
   }
 
   .cv-content-grid {
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(210px, 24%) minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
   }
 
   .cv-sidebar {
+    height: fit-content;
+  }
+
+  .cv-sidebar,
+  .cv-main-panel,
+  .objective-panel,
+  .project-card,
+  .feature-panel,
+  .commitment-panel {
     break-inside: avoid;
-    margin-bottom: 12px;
+    page-break-inside: avoid;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
   .cv-sidebar-inner {
     min-height: 0;
-    padding: 12px;
-  }
-
-  .cv-sidebar-content {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 12px;
+    padding: 10px;
   }
 
   .profile-intro {
     display: grid;
-    grid-template-columns: 64px minmax(0, 1fr);
-    grid-column: 1 / -1;
-    column-gap: 12px;
+    grid-template-columns: 54px minmax(0, 1fr);
+    column-gap: 8px;
     align-items: center;
     text-align: left;
   }
 
   .profile-avatar {
     grid-row: 1 / 4;
-    width: 64px;
-    height: 64px;
+    width: 54px;
+    height: 54px;
     margin: 0;
   }
 
   .profile-name {
     text-align: left;
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .profile-role {
     justify-self: start;
-    margin-top: 0;
-    font-size: 9px;
+    min-height: 20px;
+    margin-top: 2px;
+    padding: 3px 6px;
+    font-size: 6px;
   }
 
   .profile-description {
     grid-column: 2;
     max-width: none;
-    margin-top: 0;
-    font-size: 10px;
-    line-height: 1.35;
+    margin-top: 2px;
+    font-size: 8px;
+    line-height: 1.3;
   }
 
   .highlights-grid {
-    grid-column: 1 / -1;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: none;
-    margin: 0;
-    gap: 8px;
+    gap: 4px;
+    margin-top: 8px;
   }
 
   .highlight-item {
-    padding: 8px;
+    padding: 6px;
   }
 
   .highlight-value {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .highlight-label {
-    font-size: 10px;
-    line-height: 1.3;
+    margin-top: 2px;
+    font-size: 8px;
+    line-height: 1.25;
   }
 
   .sidebar-sections {
     display: grid;
-    grid-column: 1 / -1;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 12px;
-    margin-top: 0;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .sidebar-sections > :first-child {
+    grid-column: 1 / -1;
   }
 
   .sidebar-sections > :not([hidden]) ~ :not([hidden]),
   .contact-list > :not([hidden]) ~ :not([hidden]),
-  .project-list > :not([hidden]) ~ :not([hidden]) {
+  .project-list > :not([hidden]) ~ :not([hidden]),
+  .direction-grid > :not([hidden]) ~ :not([hidden]) {
     margin-top: 0;
   }
 
+  .cv-main-panel > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 9px;
+  }
+
+  .section-stack > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 6px;
+  }
+
+  .project-points > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 2px;
+  }
+
   .sidebar-section-title {
-    margin-bottom: 6px;
-    font-size: 9px;
+    margin-bottom: 4px;
+    font-size: 7px;
+    letter-spacing: 0.14em;
   }
 
   .contact-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
+    gap: 4px;
   }
 
   .contact-item,
   .education-card {
-    padding: 8px;
+    padding: 5px;
   }
 
   .contact-label {
-    font-size: 8px;
+    font-size: 7px;
+    letter-spacing: 0.1em;
   }
 
   .contact-value,
@@ -503,71 +538,170 @@
   .education-name,
   .education-degree,
   .education-period {
-    margin-top: 4px;
-    font-size: 9px;
-    line-height: 1.3;
+    margin-top: 2px;
+    font-size: 8px;
+    line-height: 1.25;
   }
 
   .skills-list,
   .tools-grid {
-    gap: 4px;
+    gap: 3px;
   }
 
   .skill-chip,
   .tool-item {
-    padding: 4px 6px;
-    font-size: 8px;
+    padding: 4px 5px;
+    font-size: 7px;
   }
 
   .cv-main-panel {
-    padding: 0;
-    break-inside: auto;
-    page-break-inside: auto;
+    padding: 12px;
+    border-radius: 20px;
+    gap: 0;
+  }
+
+  .cv-header {
+    gap: 4px;
+  }
+
+  .badge {
+    min-height: 20px;
+    padding: 3px 7px;
+    font-size: 7px;
+  }
+
+  .cv-name {
+    margin-top: 4px;
+    font-size: 26px;
   }
 
   .objective-panel,
   .feature-panel,
   .commitment-panel {
-    padding: 14px;
+    padding: 9px;
   }
 
-  .section-stack {
-    break-inside: auto;
-    page-break-inside: auto;
+  .section-title {
+    gap: 6px;
   }
 
-  .project-list {
-    gap: 8px;
-  }
-
-  .project-card {
-    padding: 12px;
-  }
-
-  .project-points {
-    margin-top: 8px;
-    font-size: 10px;
-    line-height: 1.4;
-  }
-
-  .project-point {
-    gap: 8px;
-  }
-
-  .project-bullet {
-    width: 7px;
-    height: 7px;
-    margin-top: 4px;
+  .section-title-accent {
+    height: 18px;
+    width: 4px;
   }
 
   .section-title-text {
-    font-size: 12px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
   }
 
   .objective-content,
   .feature-copy {
+    margin-top: 6px;
     font-size: 10px;
-    line-height: 1.5;
+    line-height: 1.4;
+  }
+
+  .objective-content > :not([hidden]) ~ :not([hidden]),
+  .feature-copy > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 4px;
+  }
+
+  .section-stack {
+    gap: 4px;
+  }
+
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .project-card {
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .project-heading-row {
+    gap: 4px;
+  }
+
+  .project-team {
+    min-height: 18px;
+    padding: 3px 5px;
+    font-size: 7px;
+    letter-spacing: 0.07em;
+  }
+
+  .project-name {
+    margin-top: 3px;
+    font-size: 10px;
+    line-height: 1.25;
+  }
+
+  .project-year {
+    padding: 3px 5px;
+    font-size: 8px;
+  }
+
+  .project-points {
+    margin-top: 4px;
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .project-point {
+    gap: 5px;
+  }
+
+  .project-bullet {
+    width: 5px;
+    height: 5px;
+    margin-top: 3px;
+  }
+
+  .feature-grid {
+    gap: 5px;
+  }
+
+  .feature-copy {
+    font-size: 9px;
+  }
+
+  .direction-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    margin-top: 5px;
+  }
+
+  .direction-item {
+    min-height: 0;
+    padding: 5px;
+    font-size: 7px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .commitment-panel {
+    background-color: rgb(14 165 233 / 0.08) !important;
+    color: #cbd5e1 !important;
+    font-size: 9px;
+    line-height: 1.4;
+  }
+
+  .commitment-title {
+    color: #fff !important;
+  }
+
+  .commitment-copy {
+    margin-top: 3px;
+  }
+
+  #cv-content,
+  #cv-content * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

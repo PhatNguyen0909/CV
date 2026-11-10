@@ -41,18 +41,18 @@ button {
 
 @media print {
   @page {
-    size: A4;
-    margin: 6mm;
+    size: A4 landscape;
+    margin: 0;
   }
 
   html,
   body {
     margin: 0;
     padding: 0;
-    width: auto;
+    width: 100%;
     height: auto;
     overflow: visible !important;
-    background: #ffffff !important;
+    background: #0f172a !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -70,7 +70,7 @@ button {
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 8mm !important;
     height: auto !important;
     min-height: 0 !important;
     overflow: visible !important;

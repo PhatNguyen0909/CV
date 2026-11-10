@@ -86,6 +86,7 @@ const tools = [
   'TypeScript',
   'Git / GitHub',
   'Postman',
+  'Figma',
   'VS Code',
 ];
 

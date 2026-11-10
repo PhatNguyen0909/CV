@@ -81,7 +81,7 @@ async function run() {
     browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
-    await page.setViewport({ width: 1200, height: 1000, deviceScaleFactor: 1 });
+    await page.setViewport({ width: 1200, height: 850, deviceScaleFactor: 2 });
     await page.emulateMediaType('print');
     await page.goto(previewUrl, { waitUntil: 'networkidle0' });
 
@@ -89,6 +89,23 @@ async function run() {
       if (document.fonts?.ready) {
         await document.fonts.ready;
       }
+
+      window.localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add('dark');
+      const step = Math.max(window.innerHeight * 0.8, 1);
+      for (let top = 0; top < document.documentElement.scrollHeight; top += step) {
+        window.scrollTo(0, top);
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+      }
+
+      window.scrollTo(0, 0);
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+      const content = document.querySelector('#cv-content');
+      if (!(content instanceof HTMLElement)) {
+        throw new Error('Cannot find #cv-content on page.');
+      }
+      content.style.backgroundColor = '#0f172a';
 
       const nodes = document.querySelectorAll('#cv-content, #cv-content *');
       nodes.forEach((node) => {
@@ -103,14 +120,69 @@ async function run() {
       await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     });
 
-    await page.pdf({
+    const content = await page.$('#cv-content');
+    if (!content) {
+      throw new Error('Cannot find #cv-content on page.');
+    }
+
+    const bounds = await content.boundingBox();
+    if (!bounds || bounds.width <= 0 || bounds.height <= 0) {
+      throw new Error('CV content has no printable dimensions.');
+    }
+
+    const imageBuffer = await content.screenshot({ type: 'png' });
+    const imageBase64 = imageBuffer.toString('base64');
+    const imageWidth = Math.round(bounds.width * 2);
+    const imageHeight = Math.round(bounds.height * 2);
+    const scale = Math.min(297 / imageWidth, 210 / imageHeight);
+    const renderedWidth = imageWidth * scale;
+    const renderedHeight = imageHeight * scale;
+    const x = (297 - renderedWidth) / 2;
+    const y = (210 - renderedHeight) / 2;
+
+    const printPage = await browser.newPage();
+    await printPage.setContent(
+      `<!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <style>
+            @page { size: A4 landscape; margin: 0; }
+            html, body { margin: 0; padding: 0; }
+            .page {
+              width: 297mm;
+              height: 210mm;
+              overflow: hidden;
+              background: #0f172a;
+            }
+            svg { display: block; width: 297mm; height: 210mm; }
+          </style>
+        </head>
+        <body>
+          <div class="page">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="297" height="210" viewBox="0 0 297 210">
+              <rect width="297" height="210" fill="#0f172a" />
+              <image href="data:image/png;base64,${imageBase64}"
+                     x="${x}" y="${y}"
+                     width="${renderedWidth}" height="${renderedHeight}" />
+            </svg>
+          </div>
+        </body>
+      </html>`,
+      { waitUntil: 'load' }
+    );
+
+    await printPage.pdf({
       path: outputPath,
       format: 'A4',
+      landscape: true,
       printBackground: true,
       margin: { top: '0', right: '0', bottom: '0', left: '0' },
-      preferCSSPageSize: true,
+      preferCSSPageSize: false,
     });
 
+    await printPage.close();
     console.log(`\nPDF exported successfully: ${outputPath}`);
   } finally {
     if (browser) {
