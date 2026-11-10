@@ -10,27 +10,6 @@ type Experience = {
   points: string[];
 };
 
-const experiences: Experience[] = [
-  {
-    period: '2026',
-    title: 'Cửa hàng trưởng | Nhà hàng Vĩnh Ký',
-    team: 'Kinh nghiệm bổ trợ',
-    points: [
-      'Điều phối công việc và hướng dẫn nhân viên, rèn luyện tinh thần trách nhiệm, chủ động phối hợp và theo sát tiến độ.',
-      'Lắng nghe phản hồi, xác định nhu cầu và xử lý tình huống thực tế với sự cẩn thận, kiên nhẫn.',
-    ],
-  },
-  {
-    period: '2024',
-    title: 'Khu vui chơi giải trí phức hợp MiaTown',
-    team: 'Trưởng nhóm | Kinh nghiệm bổ trợ',
-    points: [
-      'Hướng dẫn nhân viên thực hiện quy trình, phối hợp trong ca làm việc và hỗ trợ đội nhóm khi có phát sinh.',
-      'Ghi nhận ý kiến khách hàng, luyện tập giao tiếp rõ ràng và cải thiện trải nghiệm dịch vụ.',
-    ],
-  },
-];
-
 const projects: Experience[] = [
   {
     period: '2026',
@@ -368,39 +347,6 @@ export default function App() {
                     </div>
                     <ul className='project-points'>
                       {project.points.map((point) => (
-                        <li key={point} className='project-point'>
-                          <span className='project-bullet' />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.article>
-                ))}
-              </div>
-            </section>
-
-            <section className='section-stack'>
-              <SectionTitle>Kinh nghiệm bổ trợ</SectionTitle>
-              <div className='project-list'>
-                {experiences.map((experience, index) => (
-                  <motion.article
-                    key={`${experience.title}-${experience.period}`}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.45, delay: index * 0.05 }}
-                    className='project-card'
-                  >
-                    <div className='project-top-rule' />
-                    <div className='project-heading-row'>
-                      <div>
-                        <div className='project-team'>{experience.team}</div>
-                        <h3 className='project-name'>{experience.title}</h3>
-                      </div>
-                      <span className='project-year'>{experience.period}</span>
-                    </div>
-                    <ul className='project-points'>
-                      {experience.points.map((point) => (
                         <li key={point} className='project-point'>
                           <span className='project-bullet' />
                           <span>{point}</span>

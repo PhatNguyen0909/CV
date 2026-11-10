@@ -81,7 +81,7 @@ async function run() {
     browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
-    await page.setViewport({ width: 1200, height: 850, deviceScaleFactor: 2 });
+    await page.setViewport({ width: 850, height: 1200, deviceScaleFactor: 2 });
     await page.emulateMediaType('print');
     await page.goto(previewUrl, { waitUntil: 'networkidle0' });
 
@@ -134,11 +134,11 @@ async function run() {
     const imageBase64 = imageBuffer.toString('base64');
     const imageWidth = Math.round(bounds.width * 2);
     const imageHeight = Math.round(bounds.height * 2);
-    const scale = Math.min(297 / imageWidth, 210 / imageHeight);
+    const scale = Math.min(210 / imageWidth, 297 / imageHeight);
     const renderedWidth = imageWidth * scale;
     const renderedHeight = imageHeight * scale;
-    const x = (297 - renderedWidth) / 2;
-    const y = (210 - renderedHeight) / 2;
+    const x = (210 - renderedWidth) / 2;
+    const y = (297 - renderedHeight) / 2;
 
     const printPage = await browser.newPage();
     await printPage.setContent(
@@ -147,22 +147,22 @@ async function run() {
         <head>
           <meta charset="utf-8" />
           <style>
-            @page { size: A4 landscape; margin: 0; }
+            @page { size: A4 portrait; margin: 0; }
             html, body { margin: 0; padding: 0; }
             .page {
-              width: 297mm;
-              height: 210mm;
+              width: 210mm;
+              height: 297mm;
               overflow: hidden;
               background: #0f172a;
             }
-            svg { display: block; width: 297mm; height: 210mm; }
+            svg { display: block; width: 210mm; height: 297mm; }
           </style>
         </head>
         <body>
           <div class="page">
             <svg xmlns="http://www.w3.org/2000/svg"
-                 width="297" height="210" viewBox="0 0 297 210">
-              <rect width="297" height="210" fill="#0f172a" />
+                 width="210" height="297" viewBox="0 0 210 297">
+              <rect width="210" height="297" fill="#0f172a" />
               <image href="data:image/png;base64,${imageBase64}"
                      x="${x}" y="${y}"
                      width="${renderedWidth}" height="${renderedHeight}" />
@@ -176,7 +176,6 @@ async function run() {
     await printPage.pdf({
       path: outputPath,
       format: 'A4',
-      landscape: true,
       printBackground: true,
       margin: { top: '0', right: '0', bottom: '0', left: '0' },
       preferCSSPageSize: false,
