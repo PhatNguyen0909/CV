@@ -81,7 +81,8 @@ async function run() {
     browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
-    await page.setViewport({ width: 1600, height: 2200, deviceScaleFactor: 1 });
+    await page.setViewport({ width: 1200, height: 1000, deviceScaleFactor: 1 });
+    await page.emulateMediaType('print');
     await page.goto(previewUrl, { waitUntil: 'networkidle0' });
 
     await page.evaluate(async () => {
@@ -89,105 +90,26 @@ async function run() {
         await document.fonts.ready;
       }
 
-      const toolbar = document.querySelector('div.mb-6.flex.flex-wrap.items-center.justify-between.gap-3');
-      if (toolbar instanceof HTMLElement) {
-        toolbar.style.display = 'none';
-      }
-
-      const root = document.documentElement;
-      root.classList.add('pdf-export-mode');
-    });
-
-    const content = await page.$('#cv-content');
-    if (!content) {
-      throw new Error('Cannot find #cv-content on page.');
-    }
-
-    await page.evaluate(async () => {
-      const root = document.documentElement;
-      root.classList.add('pdf-export-mode');
-
-      const nodes = document.querySelectorAll('#cv-content *');
+      const nodes = document.querySelectorAll('#cv-content, #cv-content *');
       nodes.forEach((node) => {
         if (node instanceof HTMLElement) {
-          node.style.animation = 'none';
-          node.style.transition = 'none';
-
-          if (node.style.opacity) {
-            node.style.opacity = '1';
-          }
-
-          if (node.style.transform) {
-            node.style.transform = 'none';
-          }
+          node.style.setProperty('animation', 'none', 'important');
+          node.style.setProperty('transition', 'none', 'important');
+          node.style.setProperty('opacity', '1', 'important');
+          node.style.setProperty('transform', 'none', 'important');
         }
       });
 
       await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     });
 
-    const imageBuffer = await content.screenshot({ type: 'png' });
-    const imageBase64 = imageBuffer.toString('base64');
-
-    const printPage = await browser.newPage();
-    const A4_WIDTH_PX = 794;
-    const A4_HEIGHT_PX = 1123;
-    const MARGIN_X_PX = 4;
-    const MARGIN_Y_PX = 8;
-
-    await printPage.setViewport({ width: A4_WIDTH_PX, height: A4_HEIGHT_PX, deviceScaleFactor: 1 });
-
-    await printPage.setContent(
-      `<!doctype html>
-      <html>
-        <head>
-          <meta charset="utf-8" />
-          <style>
-            html, body {
-              margin: 0;
-              width: 100%;
-              height: 100%;
-              background: #0f172a;
-            }
-
-            .page {
-              width: 100vw;
-              height: 100vh;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              overflow: hidden;
-              background: #0f172a;
-            }
-
-            img {
-              width: calc(100vw - ${MARGIN_X_PX * 2}px);
-              height: calc(100vh - ${MARGIN_Y_PX * 2}px);
-              object-fit: contain;
-              object-position: center;
-              display: block;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="page">
-            <img src="data:image/png;base64,${imageBase64}" alt="CV" />
-          </div>
-        </body>
-      </html>`,
-      { waitUntil: 'load' }
-    );
-
-    await printPage.pdf({
+    await page.pdf({
       path: outputPath,
       format: 'A4',
       printBackground: true,
       margin: { top: '0', right: '0', bottom: '0', left: '0' },
-      pageRanges: '1',
-      preferCSSPageSize: false,
+      preferCSSPageSize: true,
     });
-
-    await printPage.close();
 
     console.log(`\nPDF exported successfully: ${outputPath}`);
   } finally {

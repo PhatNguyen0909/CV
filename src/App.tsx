@@ -4,7 +4,7 @@ import profileImage from '../Image/NguyenHuuVinhPhat.jpg';
 import './App.css';
 
 type Experience = {
-  year: string;
+  period: string;
   title: string;
   team: string;
   points: string[];
@@ -12,74 +12,87 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    year: '2024',
-    title: 'Ứng dụng giao hàng trên nền tảng web',
-    team: 'Trưởng nhóm | Lập trình web',
+    period: '2026',
+    title: 'Cửa hàng trưởng | Nhà hàng Vĩnh Ký',
+    team: 'Kinh nghiệm bổ trợ',
     points: [
-      'Phân tích yêu cầu và thiết kế quy trình đặt hàng cho ứng dụng web với trải nghiệm rõ ràng.',
-      'Phối hợp cùng nhóm để xây dựng luồng ứng dụng, giao diện và kế hoạch bàn giao sản phẩm.',
-      'Thực hành chuyển yêu cầu sản phẩm thành các màn hình và đầu việc có thể triển khai.',
+      'Điều phối công việc và hướng dẫn nhân viên, rèn luyện tinh thần trách nhiệm, chủ động phối hợp và theo sát tiến độ.',
+      'Lắng nghe phản hồi, xác định nhu cầu và xử lý tình huống thực tế với sự cẩn thận, kiên nhẫn.',
     ],
   },
   {
-    year: '2024',
+    period: '2024',
+    title: 'Khu vui chơi giải trí phức hợp MiaTown',
+    team: 'Trưởng nhóm | Kinh nghiệm bổ trợ',
+    points: [
+      'Hướng dẫn nhân viên thực hiện quy trình, phối hợp trong ca làm việc và hỗ trợ đội nhóm khi có phát sinh.',
+      'Ghi nhận ý kiến khách hàng, luyện tập giao tiếp rõ ràng và cải thiện trải nghiệm dịch vụ.',
+    ],
+  },
+];
+
+const projects: Experience[] = [
+  {
+    period: '2026',
+    title: 'Web App quản lý tài chính quán Vĩnh Ký',
+    team: 'Dự án cá nhân | Phát triển web',
+    points: [
+      'Phân tích nhu cầu thực tế và xây dựng web app hỗ trợ theo dõi hoạt động tài chính hằng ngày.',
+      'Thiết kế chức năng ghi nhận, tổng hợp doanh thu và chi phí để dữ liệu được quản lý tập trung.',
+      'Xây dựng báo cáo lợi nhuận, tập trung trình bày dữ liệu dễ theo dõi để hỗ trợ quyết định vận hành.',
+    ],
+  },
+  {
+    period: '2024',
     title: 'Website thương mại điện tử',
     team: 'Thành viên dự án | Lập trình web',
     points: [
       'Sắp xếp thông tin sản phẩm và nội dung trang cho giao diện e-commerce dễ bảo trì.',
-      'Chú trọng tính dễ sử dụng, bố cục responsive và luồng tương tác rõ ràng khi xây dựng website.',
+      'Chú trọng bố cục responsive, khả năng sử dụng và luồng tương tác rõ ràng khi xây dựng website.',
     ],
   },
   {
-    year: '2026',
+    period: '2024',
+    title: 'Ứng dụng giao hàng trên nền tảng web',
+    team: 'Trưởng nhóm | Lập trình web',
+    points: [
+      'Phân tích yêu cầu và thiết kế quy trình đặt hàng với trải nghiệm rõ ràng.',
+      'Phối hợp cùng nhóm xây dựng luồng ứng dụng, giao diện và kế hoạch bàn giao sản phẩm.',
+    ],
+  },
+  {
+    period: '2026',
     title: 'Food Hub',
-    team: 'Cá nhân | Kiến trúc Microservice',
+    team: 'Dự án cá nhân | Kiến trúc Microservice',
     points: [
-      'Xây dựng dự án cá nhân theo định hướng kiến trúc microservice để tách biệt các thành phần và trách nhiệm của hệ thống.',
-      'Thiết kế và kiểm tra luồng giao tiếp thông qua API Gateway, tập trung vào khả năng định tuyến request giữa các service.',
-      'Sử dụng Postman để kiểm thử API Gateway và dùng GitHub Copilot hỗ trợ nghiên cứu, viết mã nguồn và xử lý lỗi trong quá trình phát triển.',
-    ],
-  },
-  {
-    year: '2026',
-    title: 'Web App quản lý tài chính quán Vĩnh Ký',
-    team: 'Thực tế cá nhân | Phát triển web',
-    points: [
-      'Phân tích nhu cầu thực tế và xây dựng web app hỗ trợ theo dõi hoạt động tài chính hằng ngày.',
-      'Thiết kế chức năng ghi nhận, tổng hợp doanh thu và chi phí để dữ liệu được quản lý tập trung.',
-      'Xây dựng báo cáo lợi nhuận giúp theo dõi tình hình kinh doanh và hỗ trợ đưa ra quyết định vận hành.',
+      'Tách các thành phần hệ thống theo định hướng microservice và thiết kế luồng giao tiếp qua API Gateway.',
+      'Dùng Postman kiểm thử API Gateway; chủ động nghiên cứu và xử lý lỗi trong quá trình phát triển.',
     ],
   },
 ];
 
 const skills = [
-  'HTML / CSS / JavaScript',
+  'HTML5 / CSS3 / JavaScript ES6+',
   'React & Vite',
-  'Lập trình web responsive',
-  'Git & quản lý mã nguồn',
-  'Microservice & API Gateway',
-  'Kiểm thử API với Postman',
-  'Prompt Engineering',
-  'GitHub Copilot & AI-assisted coding',
-  'Tư duy giải quyết vấn đề',
+  'TypeScript',
+  'Responsive Web UI',
+  'Git & GitHub',
+  'REST API & Postman',
 ];
 
 const tools = [
   'React',
+  'Vite',
   'TypeScript',
+  'Git / GitHub',
   'Postman',
-  'GitHub Copilot',
-  'ChatGPT',
-  'VSCode',
-  'Git',
-  'Figma',
-  'Java',
-  'AI Tools',
+  'VS Code',
 ];
 
 const highlights = [
-  { label: '4', value: 'Dự án lập trình' },
-  { label: '2026', value: 'Dự kiến tốt nghiệp CNTT' },
+  { label: '4', value: 'Dự án web' },
+  { label: 'React', value: 'Frontend chính' },
+  { label: 'CNTT', value: 'Đại học Sài Gòn' },
 ];
 
 function SunIcon() {
@@ -160,83 +173,8 @@ export default function App() {
     window.localStorage.setItem('theme', nextTheme ? 'dark' : 'light');
   };
 
-  const exportPDF = async () => {
-    const [{ default: html2canvas }, { default: JsPDF }] = await Promise.all([
-      import('html2canvas'),
-      import('jspdf'),
-    ]);
-    const cvElement = document.getElementById('cv-content');
-
-    if (!cvElement) {
-      return;
-    }
-
-    if (document.fonts?.ready) {
-      await document.fonts.ready;
-    }
-
-    const sourceWidth = cvElement.scrollWidth;
-    const sourceHeight = cvElement.scrollHeight;
-
-    document.documentElement.classList.add('pdf-export-mode');
-
-    try {
-      await new Promise<void>((resolve) => {
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => resolve());
-        });
-      });
-
-      const canvas = await html2canvas(cvElement, {
-        scale: 3,
-        useCORS: true,
-        backgroundColor: '#0f172a',
-        scrollX: 0,
-        scrollY: 0,
-        width: sourceWidth,
-        height: sourceHeight,
-        windowWidth: sourceWidth,
-        windowHeight: sourceHeight,
-      });
-
-      const pdf = new JsPDF({
-        orientation: 'p',
-        unit: 'mm',
-        format: 'a4',
-        compress: true,
-      });
-
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      const margin = 8;
-      const printableWidth = pageWidth - margin * 2;
-      const printableHeight = pageHeight - margin * 2;
-      const widthScale = printableWidth / canvas.width;
-      const heightScale = printableHeight / canvas.height;
-      const scale = Math.min(widthScale, heightScale);
-      const renderWidth = canvas.width * scale;
-      const renderHeight = canvas.height * scale;
-      const renderX = (pageWidth - renderWidth) / 2;
-      const renderY = (pageHeight - renderHeight) / 2;
-      const imageData = canvas.toDataURL('image/png');
-
-      pdf.setFillColor(15, 23, 42);
-      pdf.rect(0, 0, pageWidth, pageHeight, 'F');
-      pdf.addImage(
-        imageData,
-        'PNG',
-        renderX,
-        renderY,
-        renderWidth,
-        renderHeight,
-        undefined,
-        'FAST'
-      );
-
-      pdf.save('nguyen-huu-vinh-phat-cv.pdf');
-    } finally {
-      document.documentElement.classList.remove('pdf-export-mode');
-    }
+  const exportPDF = () => {
+    window.print();
   };
 
   return (
@@ -257,14 +195,14 @@ export default function App() {
               {darkMode ? <SunIcon /> : <MoonIcon />}
               {darkMode ? 'Chế độ sáng' : 'Chế độ tối'}
             </button>
-            {/* <button
-              type="button"
+            <button
+              type='button'
               onClick={exportPDF}
-              className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-sky-700"
+              className='inline-flex items-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-sky-700'
             >
               <DownloadIcon />
-              Tải CV dạng PDF
-            </button> */}
+              In / lưu PDF
+            </button>
           </div>
         </div>
 
@@ -288,10 +226,12 @@ export default function App() {
                     <div className='profile-glow' />
                   </div>
                   <h1 className='profile-name'>Vĩnh Phát</h1>
-                  <p className='profile-role'>THỰC TẬP SINH LẬP TRÌNH</p>
+                  <p className='profile-role'>FRONTEND ENGINEER INTERN</p>
                   <p className='profile-description'>
-                    Sinh viên Công nghệ Thông tin định hướng xây dựng các ứng
-                    dụng web thực tế, dễ bảo trì và thân thiện với người dùng.
+                    Sinh viên Công nghệ Thông tin định hướng Frontend, có nền
+                    tảng React, TypeScript và phát triển giao diện responsive.
+                    Mong muốn tham gia xây dựng sản phẩm web doanh nghiệp tại
+                    Trustline.
                   </p>
                 </motion.div>
 
@@ -309,9 +249,11 @@ export default function App() {
                     <p className='sidebar-section-title'>Liên hệ</p>
                     <div className='contact-list'>
                       <ContactItem label='Điện thoại' value='0376122821' />
+                      <ContactItem label='Năm sinh' value='2004' />
                       <ContactItem
                         label='Email'
                         value='phatnguyen99204@gmail.com'
+                        href='mailto:phatnguyen99204@gmail.com'
                       />
                       <ContactItem label='Địa điểm' value='TP. Hồ Chí Minh' />
                       <ContactItem
@@ -325,11 +267,15 @@ export default function App() {
                   <div>
                     <p className='sidebar-section-title'>Học vấn</p>
                     <div className='education-card'>
-                      <p className='education-name'>Saigon University</p>
+                      <p className='education-name'>
+                        Saigon University – Đại học Sài Gòn
+                      </p>
                       <p className='education-degree'>
                         Cử nhân Công nghệ Thông tin
                       </p>
-                      <p className='education-period'>2022 - 2026</p>
+                      <p className='education-period'>
+                        2022–2026 · Ngành Công nghệ Thông tin
+                      </p>
                     </div>
                   </div>
 
@@ -368,7 +314,7 @@ export default function App() {
             >
               <div className='cv-header-content'>
                 <div>
-                  <Badge>THỰC TẬP SINH LẬP TRÌNH</Badge>
+                  <Badge>TRUSTLINE · TL-INT-02 | FRONTEND ENGINEER INTERN</Badge>
                   <h1 className='cv-name'>Nguyễn Hữu Vĩnh Phát</h1>
                 </div>
               </div>
@@ -384,28 +330,60 @@ export default function App() {
               <SectionTitle>Mục tiêu nghề nghiệp</SectionTitle>
               <div className='objective-content'>
                 <p>
-                  Tôi ứng tuyển vị trí Thực tập sinh Lập trình để phát triển
-                  kinh nghiệm phần mềm trong môi trường làm việc chuyên nghiệp.
-                  Là sinh viên Công nghệ Thông tin, tôi đã thực hiện các dự án
-                  web và xây dựng nền tảng về react frontend, giao diện
-                  responsive hoặc backend và tư duy giải quyết vấn đề có hệ
-                  thống.
+                  Tôi ứng tuyển vị trí Frontend Engineer Intern (TL-INT-02) tại
+                  Trustline. Là sinh viên Công nghệ Thông tin, tôi đã thực hiện
+                  các dự án web với React/Vite, xây dựng giao diện responsive
+                  và chuyển yêu cầu thành các luồng chức năng cụ thể.
                 </p>
                 <p>
-                  Tôi mong muốn học hỏi qua hoạt động review code, đóng góp vào
-                  các công việc thực tế của sản phẩm và cải thiện khả năng viết
-                  mã nguồn sạch, đáng tin cậy. Tôi có tinh thần trách nhiệm, chú
-                  ý đến chi tiết và chủ động phối hợp trong mọi nhiệm vụ.
+                  Tôi mong muốn phát triển giao diện dashboard doanh nghiệp,
+                  rèn luyện cách xây dựng component có thể tái sử dụng, hoàn
+                  thiện trải nghiệm trên nhiều thiết bị và học hỏi quy trình
+                  review, tối ưu hiệu năng, accessibility từ Senior Frontend
+                  Engineer.
                 </p>
               </div>
             </motion.section>
 
             <section className='section-stack'>
-              <SectionTitle>Dự án lập trình web</SectionTitle>
+              <SectionTitle>Dự án Frontend & Web</SectionTitle>
+              <div className='project-list'>
+                {projects.map((project, index) => (
+                  <motion.article
+                    key={project.title}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.45, delay: index * 0.05 }}
+                    className='project-card'
+                  >
+                    <div className='project-top-rule' />
+                    <div className='project-heading-row'>
+                      <div>
+                        <div className='project-team'>{project.team}</div>
+                        <h3 className='project-name'>{project.title}</h3>
+                      </div>
+                      <span className='project-year'>{project.period}</span>
+                    </div>
+                    <ul className='project-points'>
+                      {project.points.map((point) => (
+                        <li key={point} className='project-point'>
+                          <span className='project-bullet' />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.article>
+                ))}
+              </div>
+            </section>
+
+            <section className='section-stack'>
+              <SectionTitle>Kinh nghiệm bổ trợ</SectionTitle>
               <div className='project-list'>
                 {experiences.map((experience, index) => (
                   <motion.article
-                    key={`${experience.title}-${experience.year}`}
+                    key={`${experience.title}-${experience.period}`}
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
@@ -418,7 +396,7 @@ export default function App() {
                         <div className='project-team'>{experience.team}</div>
                         <h3 className='project-name'>{experience.title}</h3>
                       </div>
-                      <span className='project-year'>{experience.year}</span>
+                      <span className='project-year'>{experience.period}</span>
                     </div>
                     <ul className='project-points'>
                       {experience.points.map((point) => (
@@ -441,19 +419,17 @@ export default function App() {
                 transition={{ duration: 0.5 }}
                 className='feature-panel'
               >
-                <SectionTitle>Thế mạnh kỹ thuật</SectionTitle>
+                <SectionTitle>Điểm phù hợp với vị trí</SectionTitle>
                 <div className='feature-copy'>
                   <p>
-                    Xây dựng giao diện rõ ràng, responsive và chú trọng khả năng
-                    sử dụng trên nhiều kích thước màn hình.
+                    Có nền tảng HTML, CSS, JavaScript, React, TypeScript và
+                    kinh nghiệm làm các dự án web; quan tâm đến giao diện rõ
+                    ràng, responsive và cách trình bày dữ liệu dễ hiểu.
                   </p>
                   <p>
-                    Biết phân rã yêu cầu thành các đầu việc thực tế, tìm hiểu
-                    lỗi có hệ thống và nhanh chóng học công cụ mới.
-                  </p>
-                  <p>
-                    Làm việc cẩn thận với cấu trúc, cách đặt tên và tính nhất
-                    quán để mã nguồn dễ bảo trì.
+                    Kinh nghiệm làm việc dịch vụ giúp tôi chú ý đến nhu cầu
+                    người dùng, giao tiếp chủ động và phối hợp có trách nhiệm.
+                    Tôi đang định hướng học sâu Next.js và Tailwind CSS.
                   </p>
                 </div>
               </motion.div>
@@ -465,13 +441,13 @@ export default function App() {
                 transition={{ duration: 0.5 }}
                 className='feature-panel'
               >
-                <SectionTitle>Định hướng phát triển</SectionTitle>
+                <SectionTitle>Trọng tâm học hỏi tại Trustline</SectionTitle>
                 <div className='direction-grid'>
                   {[
-                    'Lập trình frontend',
-                    'Triển khai giao diện',
-                    'Debug & kiểm thử',
-                    'Làm việc nhóm',
+                    'Component UI dùng chung trên React / Next.js',
+                    'Dashboard, bảng dữ liệu và luồng tìm kiếm / lọc',
+                    'Responsive UI, Dark / Light mode và chi tiết giao diện',
+                    'Core Web Vitals, accessibility và chất lượng mã nguồn',
                   ].map((item) => (
                     <div key={item} className='direction-item'>
                       {item}
@@ -488,11 +464,11 @@ export default function App() {
               transition={{ duration: 0.6 }}
               className='commitment-panel'
             >
-              <p className='commitment-title'>Cam kết phát triển</p>
+              <p className='commitment-title'>Đóng góp tại Trustline</p>
               <p className='commitment-copy'>
-                Tôi cam kết học hỏi từ các lập trình viên giàu kinh nghiệm, hoàn
-                thành công việc đáng tin cậy và liên tục củng cố nền tảng kỹ
-                thuật thông qua thực hành và tiếp nhận phản hồi.
+                Sẵn sàng học hỏi từ Senior Frontend Engineer, chủ động tiếp
+                nhận góp ý và cùng đội ngũ xây dựng giao diện dashboard chính
+                xác, dễ sử dụng, ổn định trên nhiều kích thước màn hình.
               </p>
             </motion.footer>
           </section>

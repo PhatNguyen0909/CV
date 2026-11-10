@@ -130,15 +130,15 @@
 }
 
 .skill-chip {
-  @apply rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-2 text-[11px] font-semibold text-slate-100;
+  @apply whitespace-nowrap rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-2 text-[11px] font-semibold text-slate-100;
 }
 
 .tools-grid {
-  @apply grid grid-cols-2 gap-2 text-xs font-semibold text-slate-100;
+  @apply flex flex-wrap gap-2 text-xs font-semibold text-slate-100;
 }
 
 .tool-item {
-  @apply rounded-2xl border border-white/10 px-3 py-2 text-center backdrop-blur-sm;
+  @apply whitespace-nowrap rounded-2xl border border-white/10 px-3 py-2 text-center backdrop-blur-sm;
   background-color: rgb(255 255 255 / 0.08);
 }
 
@@ -284,25 +284,6 @@
   line-height: 1.2;
 }
 
-html.pdf-export-mode #cv-content,
-html.pdf-export-mode #cv-content * {
-  animation: none !important;
-  transition: none !important;
-  text-rendering: geometricPrecision !important;
-}
-
-html.pdf-export-mode #cv-content .pdf-fix-pill {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  line-height: 1.2 !important;
-  white-space: nowrap !important;
-}
-
-html.pdf-export-mode #cv-content .pdf-fix-title {
-  line-height: 1.2 !important;
-}
-
 @screen sm {
   .cv-glow-sky {
     @apply h-72 w-72;
@@ -398,32 +379,195 @@ html.pdf-export-mode #cv-content .pdf-fix-title {
 }
 
 @media print {
-  .cv-sidebar,
-  .highlight-item,
   .objective-panel,
   .project-card,
   .feature-panel,
   .commitment-panel,
-  .contact-item,
-  .cv-main-panel {
+  .project-point {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
   .cv-content-grid {
-    @apply grid grid-cols-[280px_minmax(0,1fr)] gap-4;
+    display: block;
+  }
+
+  .cv-sidebar {
+    break-inside: avoid;
+    margin-bottom: 12px;
   }
 
   .cv-sidebar-inner {
-    @apply min-h-0 p-0;
+    min-height: 0;
+    padding: 12px;
+  }
+
+  .cv-sidebar-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 12px;
+  }
+
+  .profile-intro {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-column: 1 / -1;
+    column-gap: 12px;
+    align-items: center;
+    text-align: left;
+  }
+
+  .profile-avatar {
+    grid-row: 1 / 4;
+    width: 64px;
+    height: 64px;
+    margin: 0;
+  }
+
+  .profile-name {
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .profile-role {
+    justify-self: start;
+    margin-top: 0;
+    font-size: 9px;
+  }
+
+  .profile-description {
+    grid-column: 2;
+    max-width: none;
+    margin-top: 0;
+    font-size: 10px;
+    line-height: 1.35;
   }
 
   .highlights-grid {
-    @apply mx-auto max-w-[240px] grid-cols-2 justify-items-center;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: none;
+    margin: 0;
+    gap: 8px;
+  }
+
+  .highlight-item {
+    padding: 8px;
+  }
+
+  .highlight-value {
+    font-size: 14px;
+  }
+
+  .highlight-label {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .sidebar-sections {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 12px;
+    margin-top: 0;
+  }
+
+  .sidebar-sections > :not([hidden]) ~ :not([hidden]),
+  .contact-list > :not([hidden]) ~ :not([hidden]),
+  .project-list > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0;
+  }
+
+  .sidebar-section-title {
+    margin-bottom: 6px;
+    font-size: 9px;
+  }
+
+  .contact-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .contact-item,
+  .education-card {
+    padding: 8px;
+  }
+
+  .contact-label {
+    font-size: 8px;
+  }
+
+  .contact-value,
+  .contact-link,
+  .education-name,
+  .education-degree,
+  .education-period {
+    margin-top: 4px;
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+  .skills-list,
+  .tools-grid {
+    gap: 4px;
+  }
+
+  .skill-chip,
+  .tool-item {
+    padding: 4px 6px;
+    font-size: 8px;
   }
 
   .cv-main-panel {
-    @apply p-0;
+    padding: 0;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .objective-panel,
+  .feature-panel,
+  .commitment-panel {
+    padding: 14px;
+  }
+
+  .section-stack {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .project-list {
+    gap: 8px;
+  }
+
+  .project-card {
+    padding: 12px;
+  }
+
+  .project-points {
+    margin-top: 8px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .project-point {
+    gap: 8px;
+  }
+
+  .project-bullet {
+    width: 7px;
+    height: 7px;
+    margin-top: 4px;
+  }
+
+  .section-title-text {
+    font-size: 12px;
+  }
+
+  .objective-content,
+  .feature-copy {
+    font-size: 10px;
+    line-height: 1.5;
   }
 }
 

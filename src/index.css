@@ -39,14 +39,6 @@ button {
   }
 }
 
-html.pdf-export-mode #cv,
-html.pdf-export-mode #cv *,
-html.pdf-export-mode #cv *::before,
-html.pdf-export-mode #cv *::after {
-  animation: none !important;
-  transition: none !important;
-}
-
 @media print {
   @page {
     size: A4;
