@@ -138,7 +138,7 @@ async function run() {
     const renderedWidth = imageWidth * scale;
     const renderedHeight = imageHeight * scale;
     const x = (210 - renderedWidth) / 2;
-    const y = (297 - renderedHeight) / 2;
+    const y = 0;
 
     const printPage = await browser.newPage();
     await printPage.setContent(
